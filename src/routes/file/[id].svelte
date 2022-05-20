@@ -33,7 +33,7 @@
     let emission_date = getDate();//= "16-mars-22";
     // TODO
     let number_invoice;//= "2022-54";
-    //let client_number;//= "";
+    let client_number;//= "";
     let begin_session;//= "13/12/2021";
     let end_session;//= "14/03/2022"; 
     let number_hours;//= "12";
