@@ -4,7 +4,7 @@
     import { page } from '$app/stores';
     import fileInfo from "../../store.js"
     import SimplebuttonGreen from "../../SimplebuttonGREEN.svelte";
-    //import loadpdf from "../../createPDF"
+    // import loadpdf from "../../createPDF.js"
 
     const studentbyID = "https://ext.edusign.fr/v1/student/" + $page.params.id;
     console.log($page.params)
@@ -96,9 +96,6 @@
         lastname = res.LASTNAME;
         return ret;
     }
-    const print = () => {
-        console.log(this.innerHTML)
-    }
 </script>
 
 
@@ -110,7 +107,7 @@
     main {
         background: #fff;
         display: grid;
-        grid-template-columns: 100%;
+        grid-template-columns: 50% 50%;
     }
     input {
 
@@ -130,7 +127,7 @@
         /* background-color: rgba(255, 255, 255, 0.899); */
         position:fixed;
         top: 10%;
-        right: 5%;
+        right: -5%;
         display: grid;
         grid-template-rows: 50% 50%;
         column-gap: 20px;
