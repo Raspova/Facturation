@@ -1,24 +1,47 @@
 
 <script>
+    import fileInfo from "../../store.js"
     let company = "PLATEFORMATION"; // acount related;
     let siret ="90211098000015"; // acount related;
     let address = "48 RUE DU PROGRES 92700 COLOMBES"; // acount related;
-    export let formation= "Anglais";
-    export let number_invoice= "2022-54";
-    export let emission_date= "16-mars-22";
-    export let client_number= "";
-    export let ref_edof= "3666373738";
-    export let civility = "";
-    export let lastname= "Sanchez";
-    export let firstname= "Lea";
-    export let begin_session= "13/12/2021";
-    export let end_session= "14/03/2022"; 
-    export let number_hours= "12";
-    export let number_days= "2";
-    export let puht= "45;00£";
-    export let mht= "45;00£";
-    export let mttc= "45;00£";
-    export let realisation_rate= "0"
+    let formation;
+    let number_invoice;
+    let emission_date;
+    let client_number;
+    let ref_edof;
+    let civility;
+    let lastname;
+    let firstname;
+    let begin_session;
+    let end_session;
+    let number_hours;
+    let number_days;
+    let puht;
+    let mht;
+    let mttc;
+    let realisation_rate;
+    const unsub  = fileInfo.subscribe(
+        valO  =>  {
+    let val = JSON.parse(valO);
+    formation = val.formation
+    number_invoice = val.number_invoice
+    emission_date = val.emission_date
+    client_number = val.client_number
+    ref_edof = val.ref_edof
+    civility = val.civility
+    lastname = val.lastname
+    firstname = val.firstname
+    begin_session = val.begin_session
+    end_session = val.end_session
+    number_hours = val.number_hours
+    number_days = val.number_days
+    puht = val.puht
+    mht = val.mht
+    mttc = val.mttc
+    realisation_rate = val.realisation_rate
+        }
+    )
+    unsub()
 </script>
 
 <style>
@@ -59,10 +82,10 @@ th[scope="row"] {
     background-color: #d7d9f2;
 }
 /* id changer tout; stocké num  */
-caption {
-    padding: 10px;
-    caption-side: bottom;
-}
+:global(body) {
+        margin: 10%;
+        background: #fff;
+    }
 
 table {
     border-collapse: collapse;
