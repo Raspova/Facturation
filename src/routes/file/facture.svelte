@@ -83,7 +83,9 @@ th[scope="row"] {
 }
 /* id changer tout; stocké num  */
 :global(body) {
-        margin: 10%;
+        top: 0;
+        left: 0;
+        margin: 0%;
         background: #fff;
     }
 

@@ -4,6 +4,7 @@
     import { page } from '$app/stores';
     import fileInfo from "../../store.js"
     import SimplebuttonGreen from "../../SimplebuttonGREEN.svelte";
+    import loadpdf from "../../createPDF"
 
     const studentbyID = "https://ext.edusign.fr/v1/student/" + $page.params.id;
     console.log($page.params)
@@ -167,20 +168,37 @@
             </p>
             <p><label for="formation">Formation : </label> <input id="formation" type="text" bind:value={formation}></p>
             <p><label for="Emision date">Emision date : </label> <input id="Emision date" type="text" bind:value={emission_date}></p>  
+            <p>UNSET</p>
+            <p><label for="N° Facture">N° Facture : </label><input id="N° Facture" type="text" bind:value={number_invoice}></p>  
+            <p><label for="Début de session">Début de session : </label><input id="Début de session" type="text" bind:value={begin_session}></p>  
+            <p><label for="Fin de session">Fin de session : </label><input id="Fin de session" type="text" bind:value={end_session}></p>  
+            <p><label for="Nombre D'heure">Nombre D'heure : </label> <input id="Nombre D'heure" type="text" bind:value={number_hours}></p>  
+            <p><label for="Nombre de Jour">Nombre de Jour : </label> <input id="Nombre de Jour" type="text" bind:value={number_days}></p>  
+            <p><label for="P.U H.T">P.U H.T : </label> <input id="P.U H.T" type="text" bind:value={puht}></p>  
+            <p><label for="Montant H.T">Montant H.T: </label> <input id="Montant H.T" type="text" bind:value={mht}></p>  
+            <p><label for="Montant TTC">Montant TTC: </label> <input id="Montant TTC" type="text" bind:value={mttc}></p>  
+            <p><label for="Taux de réalisation">Taux de réalisation: </label> <input id="Taux de réalisation" type="text" bind:value={realisation_rate}></p>  
         </div>
         <div>
-            <Facture {formation} {lastname} {firstname} {emission_date} {civility}></Facture>
+            <Facture {number_invoice} {begin_session} {end_session}
+                {number_hours} {number_days} {puht} {mht}  
+                {mttc} {realisation_rate}  {formation} {lastname} 
+                {firstname} {emission_date} {civility}></Facture>
         </div>
         {/if}
     {/await}
 
 </main>
 
+
+   
+
 <header>
     <a href="/"><SimplebuttonRed value="Back" on:click={() => { }}   ></SimplebuttonRed></a>
     <a href="/file/facture"><SimplebuttonGreen value="Validé" on:click={() => {
         storeInfo();
-        fileInfo.subscribe(val =>{console.log(val)})}
+        fileInfo.subscribe(val =>{console.log(val)});
+        loadpdf("/file/facture");}
     } ></SimplebuttonGreen> </a>        
 </header>
 <!-- {id} -->

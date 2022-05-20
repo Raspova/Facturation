@@ -3,22 +3,22 @@
     let company = "PLATEFORMATION"; // acount related;
     let siret ="90211098000015"; // acount related;
     let address = "48 RUE DU PROGRES 92700 COLOMBES"; // acount related;
-    export let formation= "Anglais";
-    export let number_invoice= "2022-54";
-    export let emission_date= "16-mars-22";
-    export let client_number= "";
-    export let ref_edof= "3666373738";
-    export let civility = "";
-    export let lastname= "Sanchez";
-    export let firstname= "Lea";
-    export let begin_session= "13/12/2021";
-    export let end_session= "14/03/2022"; 
-    export let number_hours= "12";
-    export let number_days= "2";
-    export let puht= "45;00£";
-    export let mht= "45;00£";
-    export let mttc= "45;00£";
-    export let realisation_rate= "0"
+    export let formation;
+    export let number_invoice;
+    export let emission_date;
+    export let client_number;
+    export let ref_edof;
+    export let civility;
+    export let lastname;
+    export let firstname;
+    export let begin_session;
+    export let end_session;
+    export let number_hours;
+    export let number_days;
+    export let puht;
+    export let mht;
+    export let mttc;
+    export let realisation_rate;
 </script>
 
 <style>
@@ -58,11 +58,7 @@ th[scope="col"] {
 th[scope="row"] {
     background-color: #d7d9f2;
 }
-/* id changer tout; stocké num  */
-caption {
-    padding: 10px;
-    caption-side: bottom;
-}
+
 
 table {
     border-collapse: collapse;

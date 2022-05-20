@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-module.exports = async function createPDF(url) {
+const createPDF =  async (url) => {
   const browser = await puppeteer.launch();
   // Open a new `Page`.
   const page = await browser.newPage();
@@ -30,3 +30,5 @@ module.exports = async function createPDF(url) {
   })
   await browser.close();
 }
+
+export default createPDF
