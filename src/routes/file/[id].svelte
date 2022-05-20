@@ -4,7 +4,7 @@
     import { page } from '$app/stores';
     import fileInfo from "../../store.js"
     import SimplebuttonGreen from "../../SimplebuttonGREEN.svelte";
-    import loadpdf from "../../createPDF"
+    //import loadpdf from "../../createPDF"
 
     const studentbyID = "https://ext.edusign.fr/v1/student/" + $page.params.id;
     console.log($page.params)
@@ -198,7 +198,8 @@
     <a href="/file/facture"><SimplebuttonGreen value="Validé" on:click={() => {
         storeInfo();
         fileInfo.subscribe(val =>{console.log(val)});
-        loadpdf("/file/facture");}
+    //    loadpdf("/file/facture")
+    }
     } ></SimplebuttonGreen> </a>        
 </header>
 <!-- {id} -->
