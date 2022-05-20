@@ -3,7 +3,7 @@
     import SimplebuttonGreen from "../SimplebuttonGREEN.svelte";
     import SimplebuttonRed from "../SimplebuttonRED.svelte";
     import { onMount } from "svelte";
-    let token = "1bd071cb742faf8823fbc0889cfbf23c4fbb3bf2aded73a75b4c167e3fd58b53";
+    //let token = 
     let pageIndex = 0;
     let students = getStudents(pageIndex);
     //let stuInfo = [];
@@ -13,7 +13,7 @@
     async function getStudents(pageIndex) {
         let studentsBuff = await fetch( getAll + String(pageIndex), {
             headers: {
-                "Authorization": "Bearer " +  token,
+                "Authorization": "Bearer " +  import.meta.env.VITE_TOKEN,
                 "Content-Type": "application/json"
             }
         })

@@ -1,16 +1,10 @@
 <script>
     export let data;
-    import id from "./routes/file/[id].svelte"
-	
-    const changePage = () => {
-		  component = id;
-		  props = {data:data};
-	  }
+
     let wallet_colorsPrim = "#a4bdc1";
     let wallet_colorsSeg = "#7b8f91";
     const buttonInner = data.FILE_NUMBER + "<br>" + data.LASTNAME + " "+ data.FIRSTNAME
-    //const haveLink = false;
-    const link = "/file/" + data.FILE_NUMBER ;
+    const link = "/file/" + data.ID ;
     //@html writing
     //RED
     // let wallet_colorsPrim = "#ae2d1ff2";
@@ -103,7 +97,7 @@
 
 </style>
 
-<a href={changePage()}>
+<a href={link}>
 <button class="button">
     <span class="button__text">
       <!-- <span>b</span><span>u</span>y</span><span> </span><span>s</span><span>t</span><span>u</span><span>f</span><span>f</span> -->
