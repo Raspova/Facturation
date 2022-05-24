@@ -6,7 +6,6 @@
     export let formation;
     export let number_invoice;
     export let emission_date;
-    export let client_number;
     export let ref_edof;
     export let civility;
     export let lastname;
@@ -90,7 +89,7 @@ table {
       <tr>
           <td >{number_invoice}</td>
           <td>{emission_date}</td>
-          <td>N°CLIENT {client_number}</td>
+          <td>N°CLIENT</td>
       </tr>
       <tr>
           <th scope="row">N°Convention</th>

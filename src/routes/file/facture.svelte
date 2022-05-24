@@ -1,13 +1,14 @@
 
 <script>
-    import fileInfo from "../../store.js"
+    import {fileInfo} from "../../store.js"
+    import { onMount } from 'svelte';
+
     let company = "PLATEFORMATION"; // acount related;
     let siret ="90211098000015"; // acount related;
     let address = "48 RUE DU PROGRES 92700 COLOMBES"; // acount related;
     let formation;
     let number_invoice;
     let emission_date;
-    let client_number;
     let ref_edof;
     let civility;
     let lastname;
@@ -20,28 +21,24 @@
     let mht;
     let mttc;
     let realisation_rate;
-    const unsub  = fileInfo.subscribe(
-        valO  =>  {
-    let val = JSON.parse(valO);
-    formation = val.formation
-    number_invoice = val.number_invoice
-    emission_date = val.emission_date
-    client_number = val.client_number
-    ref_edof = val.ref_edof
-    civility = val.civility
-    lastname = val.lastname
-    firstname = val.firstname
-    begin_session = val.begin_session
-    end_session = val.end_session
-    number_hours = val.number_hours
-    number_days = val.number_days
-    puht = val.puht
-    mht = val.mht
-    mttc = val.mttc
-    realisation_rate = val.realisation_rate
-        }
-    )
-    unsub()
+    onMount(() => {
+    formation  =  localStorage.getItem("formation");
+    number_invoice =  localStorage.getItem("number_invoice");
+    emission_date = localStorage.getItem("emission_date" );
+    ref_edof = localStorage.getItem("ref_edof");
+    civility = localStorage.getItem("civility");
+    lastname = localStorage.getItem("lastname");
+    firstname = localStorage.getItem("firstname");
+    begin_session = localStorage.getItem("begin_session");
+    end_session = localStorage.getItem("end_session");
+    number_hours = localStorage.getItem("number_hours");
+    number_days = localStorage.getItem("number_days");
+    puht = localStorage.getItem("puht");
+    mht = localStorage.getItem("mht");
+    mttc = localStorage.getItem("mttc");
+    realisation_rate = localStorage.getItem("realisation_rat");
+    }) 
+
 </script>
 
 <style>
@@ -81,14 +78,11 @@ th[scope="col"] {
 th[scope="row"] {
     background-color: #d7d9f2;
 }
-/* id changer tout; stocké num  */
-:global(body) {
-        top: 0;
-        left: 0;
-        margin: 0%;
-        background: #fff;
-    }
 
+main {
+    background-color: #fff;
+}
+    
 table {
     border-collapse: collapse;
     border: 2px solid rgb(200, 200, 200);
@@ -119,7 +113,7 @@ table {
       <tr>
           <td >{number_invoice}</td>
           <td>{emission_date}</td>
-          <td>N°CLIENT {client_number}</td>
+          <td>N°CLIENT</td>
       </tr>
       <tr>
           <th scope="row">N°Convention</th>

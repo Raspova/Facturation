@@ -9,6 +9,7 @@
   color: #fff;
   cursor: pointer;
   text-align:center;
+  width: 100%;
   border: none;
   background-size: 300% 100%;
   border-radius: 50px;

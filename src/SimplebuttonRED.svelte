@@ -12,7 +12,7 @@
   border: none;
   background-size: 300% 100%;
   border-radius: 50px;
-
+  width: 100%;
   -o-transition: all .4s ease-in-out;
   -webkit-transition: all .4s ease-in-out;
   transition: all .4s ease-in-out;

@@ -3,13 +3,10 @@
     import SimplebuttonGreen from "../SimplebuttonGREEN.svelte";
     import SimplebuttonRed from "../SimplebuttonRED.svelte";
     import { onMount } from "svelte";
-    //let token = 
     let pageIndex = 0;
     let students = getStudents(pageIndex);
-    //let stuInfo = [];
    
     const getAll  = "https://ext.edusign.fr/v1/student?page=";
-
     async function getStudents(pageIndex) {
         let studentsBuff = await fetch( getAll + String(pageIndex), {
             headers: {
@@ -21,13 +18,8 @@
         if (res.status == "error")
             throw () => {}
         console.log(res)
-        // students = res.result;
-        // console.log(getAll + pageIndex + "  <-> "  + res.result)
         return res.result;
-        
-        //.map((e) => {return {"LASTNAME":e.LASTNAME}});
     }
-    
 </script>
     
 <svelte:head>
@@ -36,17 +28,17 @@
 
 <style global>
 
-    h1 {
+h1 {
         color: #253031;
         border-radius: 5%;
         margin-left: 10%;
         /* color: #A9FFF7; */
     }
-    :global(body) {
-        margin: 10%;
+:global(body) {
+    margin: 10%;
     min-height: 100vh;
-    background: #BCAB79;
-    }
+    background: #fff;
+}
 header {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.899);
