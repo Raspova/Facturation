@@ -98,7 +98,7 @@
     async function storeInfo() {   
     
     var pageUrl = encodeURIComponent(window.location.href);
-    var opts = ['save-link=' + pageUrl, 'pageOrientation=auto'];
+    var opts = ['save-link=' + pageUrl, 'pageOrientation=auto',  'usePrintMedia=true'];
     window.open('https://www.sejda.com/html-to-pdf?' + opts.join('&'));
         //let a = await fetch ("/downloadPDF");
         //let b = await a.json()
