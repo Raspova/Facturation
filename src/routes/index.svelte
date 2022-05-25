@@ -2,10 +2,11 @@
     import ButonCard from "../butonCard.svelte";
     import SimplebuttonGreen from "../SimplebuttonGREEN.svelte";
     import SimplebuttonRed from "../SimplebuttonRED.svelte";
-    import { onMount } from "svelte";
+    
     let pageIndex = 0;
     let students = getStudents(pageIndex);
-   
+    
+
     const getAll  = "https://ext.edusign.fr/v1/student?page=";
     async function getStudents(pageIndex) {
         let studentsBuff = await fetch( getAll + String(pageIndex), {

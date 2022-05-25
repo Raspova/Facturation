@@ -22,30 +22,43 @@
     }
      
 </style>
+
+
 <script>
     import Facture from '../facture.svelte';
     import { page } from '$app/stores';
-    //import {fileInfo} from "../../store.js"
     import FactureForm from '../../factureForm.svelte';
     import HeadBar from '../../HeadBar.svelte';
+    import { onMount } from "svelte";
+    //const jsPDF = require("jspdf");
+
+    //import domtoimage from 'dom-to-image';
+    //import { jsPDF } from 'jspdf';
+    //import downL from '../../dowloadPDF'
+    //import {fileInfo} from "../../store.js"
+    
+    let PDFDocument;
+    onMount(async () => {
+		PDFDocument = (await import('https://github.com/foliojs/pdfkit')).default
+	})
     const studentbyID = "https://ext.edusign.fr/v1/student/" + $page.params.id;
     console.log($page.params)
     //const id = $page.params.id
-        
+    
     let studentsBuff = loadInfo(); 
-   
+    
     function getDate()  {
         let now = new Date();
         let month = '' + (now.getMonth() + 1);
         let day = '' + now.getDate();
         let year = now.getFullYear();
-
-    if (month.length < 2) 
+        
+        if (month.length < 2) 
         month = '0' + month;
-    if (day.length < 2) 
+        if (day.length < 2) 
         day = '0' + day;
-
-    return [year, month, day].join('-');
+        
+        return [year, month, day].join('-');
 	}
     let facture;
     //DONE
@@ -81,23 +94,33 @@
     //mht,
     //mttc,
     //realisation_rate,
-    function storeInfo() {    
-        localStorage.setItem("civility",civility);
-        localStorage.setItem("formation",formation);
-        localStorage.setItem("ref_edof",ref_edof);
-        localStorage.setItem("lastname",lastname);
-        localStorage.setItem("firstname",firstname);
-        localStorage.setItem("emission_date",emission_date );
-        localStorage.setItem("number_invoice",number_invoice);
-        localStorage.setItem("begin_session",begin_session);
-        localStorage.setItem("end_session",end_session);
-        localStorage.setItem("number_hours",number_hours);
-        localStorage.setItem("number_days",number_days);
-        localStorage.setItem("puht",puht);
-        localStorage.setItem("mht",mht);
-        localStorage.setItem("mttc",mttc);
-        localStorage.setItem("realisation_rat",realisation_rate);
-        console.log( document.getElementById("fac"))
+   
+    async function storeInfo() {   
+    
+    var pageUrl = encodeURIComponent(window.location.href);
+    var opts = ['save-link=' + pageUrl, 'pageOrientation=auto'];
+    window.open('https://www.sejda.com/html-to-pdf?' + opts.join('&'));
+        //let a = await fetch ("/downloadPDF");
+        //let b = await a.json()
+        console.log(a)
+        //localStorage.setItem("civility",civility);
+        //localStorage.setItem("formation",formation);
+        //localStorage.setItem("ref_edof",ref_edof);
+        //localStorage.setItem("lastname",lastname);
+        //localStorage.setItem("firstname",firstname);
+        //localStorage.setItem("emission_date",emission_date );
+        //localStorage.setItem("number_invoice",number_invoice);
+        //localStorage.setItem("begin_session",begin_session);
+        //localStorage.setItem("end_session",end_session);
+        //localStorage.setItem("number_hours",number_hours);
+        //localStorage.setItem("number_days",number_days);
+        //localStorage.setItem("puht",puht);
+        //localStorage.setItem("mht",mht);
+        //localStorage.setItem("mttc",mttc);
+        //localStorage.setItem("realisation_rat",realisation_rate);
+        ////domtoimage.toPng(document.getElementById("fac"))
+        ////pdf.create(document.getElementById("fac").innerHTML, { format: 'A4' }).toFile('./businesscard.pdf', function(err, res) {
+       
     }
 
    /* function storeInfo() {console.log("pop") ;
@@ -164,7 +187,8 @@
     {/await}
 
 </main>
+ <button href="/download"> test</button>
 
-<HeadBar grennText="Validé" redText="Annulé" linkRed ="/" on:Green_click={() => {storeInfo()}} >
+<HeadBar grennText="Validé" redText="Annulé" linkRed ="/"  on:Green_click={() => {storeInfo()}} >
 
 </HeadBar>
