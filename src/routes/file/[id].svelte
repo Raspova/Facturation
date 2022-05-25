@@ -37,10 +37,10 @@
     //import downL from '../../dowloadPDF'
     //import {fileInfo} from "../../store.js"
     
-    let PDFDocument;
-    onMount(async () => {
-		PDFDocument = (await import('https://github.com/foliojs/pdfkit')).default
-	})
+    //let PDFDocument;
+    //onMount(async () => {
+	//	PDFDocument = (await import('https://github.com/foliojs/pdfkit')).default
+	//})
     const studentbyID = "https://ext.edusign.fr/v1/student/" + $page.params.id;
     console.log($page.params)
     //const id = $page.params.id
@@ -97,29 +97,31 @@
    
     async function storeInfo() {   
     
-    var pageUrl = encodeURIComponent(window.location.href);
-    var opts = ['save-link=' + pageUrl, 'pageOrientation=auto',  'usePrintMedia=true'];
-    window.open('https://www.sejda.com/html-to-pdf?' + opts.join('&'));
+        //var pageUrl = encodeURIComponent(window.location.href);
+       
         //let a = await fetch ("/downloadPDF");
-        //let b = await a.json()
-        console.log(a)
-        //localStorage.setItem("civility",civility);
-        //localStorage.setItem("formation",formation);
-        //localStorage.setItem("ref_edof",ref_edof);
-        //localStorage.setItem("lastname",lastname);
-        //localStorage.setItem("firstname",firstname);
-        //localStorage.setItem("emission_date",emission_date );
-        //localStorage.setItem("number_invoice",number_invoice);
-        //localStorage.setItem("begin_session",begin_session);
-        //localStorage.setItem("end_session",end_session);
-        //localStorage.setItem("number_hours",number_hours);
-        //localStorage.setItem("number_days",number_days);
-        //localStorage.setItem("puht",puht);
-        //localStorage.setItem("mht",mht);
-        //localStorage.setItem("mttc",mttc);
-        //localStorage.setItem("realisation_rat",realisation_rate);
-        ////domtoimage.toPng(document.getElementById("fac"))
-        ////pdf.create(document.getElementById("fac").innerHTML, { format: 'A4' }).toFile('./businesscard.pdf', function(err, res) {
+        //let b = await a.json() + window.location.href.split('.')[1].split('/')[0]
+        console.log(window.location.href.split('file')[0] + "file/facture" )
+        localStorage.setItem("civility",civility);
+        localStorage.setItem("formation",formation);
+        localStorage.setItem("ref_edof",ref_edof);
+        localStorage.setItem("lastname",lastname);
+        localStorage.setItem("firstname",firstname);
+        localStorage.setItem("emission_date",emission_date );
+        localStorage.setItem("number_invoice",number_invoice);
+        localStorage.setItem("begin_session",begin_session);
+        localStorage.setItem("end_session",end_session);
+        localStorage.setItem("number_hours",number_hours);
+        localStorage.setItem("number_days",number_days);
+        localStorage.setItem("puht",puht);
+        localStorage.setItem("mht",mht);
+        localStorage.setItem("mttc",mttc);
+        localStorage.setItem("realisation_rat",realisation_rate);
+        var pageUrl =  window.location.href.split('file')[0] + "file/facture";//encodeURIComponent(window.location.href);
+        var opts = ['save-link=' + pageUrl, 'pageOrientation=auto'];
+        window.open('https://www.sejda.com/html-to-pdf?' + opts.join('&'));
+        //domtoimage.toPng(document.getElementById("fac"))
+        //pdf.create(document.getElementById("fac").innerHTML, { format: 'A4' }).toFile('./businesscard.pdf', function(err, res) {
        
     }
 
