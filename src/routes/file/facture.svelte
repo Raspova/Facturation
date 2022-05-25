@@ -1,3 +1,44 @@
+<script context="module">
+    export function load({ url }) {
+      const ref = url.searchParams.get('') || 'Undefiend';
+    let formation = url.searchParams.get('formation') || 'Undefiend';
+    let number_invoice = url.searchParams.get('number_invoice') || 'Undefiend';
+    let emission_date = url.searchParams.get('emission_date') || 'Undefiend';
+    let ref_edof = url.searchParams.get('ref_edof') || 'Undefiend';
+    let civility = url.searchParams.get('civility') || 'Undefiend';
+    let lastname = url.searchParams.get('lastname') || 'Undefiend';
+    let firstname = url.searchParams.get('firstname') || 'Undefiend';
+    let begin_session = url.searchParams.get('begin_session') || 'Undefiend';
+    let end_session = url.searchParams.get('end_session') || 'Undefiend';
+    let number_hours = url.searchParams.get('number_hours') || 'Undefiend';
+    let number_days = url.searchParams.get('number_days') || 'Undefiend';
+    let puht = url.searchParams.get('puht') || 'Undefiend';
+    let mht = url.searchParams.get('mht') || 'Undefiend';
+    let mttc = url.searchParams.get('mttc') || 'Undefiend';
+    let realisation_rate = url.searchParams.get('realisation_rate') || 'Undefiend';
+
+    return {
+        props: {
+        formation,
+        number_invoice,
+        emission_date,
+        ref_edof,
+        civility,
+        lastname,
+        firstname,
+        begin_session,
+        end_session,
+        number_hours,
+        number_days,
+        puht,
+        mht,
+        mttc,
+        realisation_rate,
+        }
+      };
+    }
+</script>
+
 
 <script>
     //import {fileInfo} from "../../store.js"
@@ -6,38 +47,38 @@
     let company = "PLATEFORMATION"; // acount related;
     let siret ="90211098000015"; // acount related;
     let address = "48 RUE DU PROGRES 92700 COLOMBES"; // acount related;
-    let formation;
-    let number_invoice;
-    let emission_date;
-    let ref_edof;
-    let civility;
-    let lastname;
-    let firstname;
-    let begin_session;
-    let end_session;
-    let number_hours;
-    let number_days;
-    let puht;
-    let mht;
-    let mttc;
-    let realisation_rate;
-    onMount(() => {
-    formation  =  localStorage.getItem("formation");
-    number_invoice =  localStorage.getItem("number_invoice");
-    emission_date = localStorage.getItem("emission_date" );
-    ref_edof = localStorage.getItem("ref_edof");
-    civility = localStorage.getItem("civility");
-    lastname = localStorage.getItem("lastname");
-    firstname = localStorage.getItem("firstname");
-    begin_session = localStorage.getItem("begin_session");
-    end_session = localStorage.getItem("end_session");
-    number_hours = localStorage.getItem("number_hours");
-    number_days = localStorage.getItem("number_days");
-    puht = localStorage.getItem("puht");
-    mht = localStorage.getItem("mht");
-    mttc = localStorage.getItem("mttc");
-    realisation_rate = localStorage.getItem("realisation_rat");
-    }) 
+    export let formation;
+    export let number_invoice;
+    export let emission_date;
+    export let ref_edof;
+    export let civility;
+    export let lastname;
+    export let firstname;
+    export let begin_session;
+    export let end_session;
+    export let number_hours;
+    export let number_days;
+    export let puht;
+    export let mht;
+    export let mttc;
+    export let realisation_rate;
+    //onMount(() => {
+    //formation  =  localStorage.getItem("formation");
+    //number_invoice =  localStorage.getItem("number_invoice");
+    //emission_date = localStorage.getItem("emission_date" );
+    //ref_edof = localStorage.getItem("ref_edof");
+    //civility = localStorage.getItem("civility");
+    //lastname = localStorage.getItem("lastname");
+    //firstname = localStorage.getItem("firstname");
+    //begin_session = localStorage.getItem("begin_session");
+    //end_session = localStorage.getItem("end_session");
+    //number_hours = localStorage.getItem("number_hours");
+    //number_days = localStorage.getItem("number_days");
+    //puht = localStorage.getItem("puht");
+    //mht = localStorage.getItem("mht");
+    //mttc = localStorage.getItem("mttc");
+    //realisation_rate = localStorage.getItem("realisation_rat");
+    //}) 
 
 </script>
 

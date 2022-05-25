@@ -30,6 +30,7 @@
     import FactureForm from '../../factureForm.svelte';
     import HeadBar from '../../HeadBar.svelte';
     import { onMount } from "svelte";
+    
     //const jsPDF = require("jspdf");
 
     //import domtoimage from 'dom-to-image';
@@ -117,8 +118,25 @@
         localStorage.setItem("mht",mht);
         localStorage.setItem("mttc",mttc);
         localStorage.setItem("realisation_rat",realisation_rate);
-        var pageUrl =  window.location.href.split('file')[0] + "file/facture";//encodeURIComponent(window.location.href);
+
         var opts = ['save-link=' + pageUrl, 'pageOrientation=auto'];
+        let params = ["civility=" + civility,
+        "formation=" + formation,
+        "ref_edof=" + ref_edof,
+        "lastname=" + lastname,
+        "firstname=" + firstname,
+        "emission_date=" + emission_date ,
+        "number_invoice=" + number_invoice,
+        "begin_session=" + begin_session,
+        "end_session=" + end_session,
+        "number_hours=" + number_hours,
+        "number_days=" + number_days,
+        "puht=" + puht,
+        "mht=" + mht,
+        "mttc=" + mttc,
+        "realisation_rat=" + realisation_rate,];
+        var pageUrl =  window.location.href.split('file')[0] + "file/facture?" + params.join('&') ;//encodeURIComponent(window.location.href);
+        console.log(pageUrl);
         window.open('https://www.sejda.com/html-to-pdf?' + opts.join('&'));
         //domtoimage.toPng(document.getElementById("fac"))
         //pdf.create(document.getElementById("fac").innerHTML, { format: 'A4' }).toFile('./businesscard.pdf', function(err, res) {
