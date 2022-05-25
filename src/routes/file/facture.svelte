@@ -1,6 +1,6 @@
 
 <script>
-    import {fileInfo} from "../../store.js"
+    //import {fileInfo} from "../../store.js"
     import { onMount } from 'svelte';
 
     let company = "PLATEFORMATION"; // acount related;
