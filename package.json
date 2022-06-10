@@ -15,11 +15,11 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"base64topdf": "^1.1.8",
 		"dom-to-image": "^2.6.0",
-		"fs": "^0.0.1-security",
-		"jspdf": "^2.5.1",
-		"pdfkit": "^0.13.0",
-		"puppeteer": "^14.1.1"
+		"dotenv": "^16.0.1",
+		"fetch": "^1.1.0",
+		"jspdf": "^2.4.0",
+		"pg": "^8.7.3",
+		"puppeteer": "^14.1.2"
 	}
 }

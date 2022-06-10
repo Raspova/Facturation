@@ -1,0 +1,31 @@
+Matiere id value idprof ideleve 
+Contact : Nom prenom tel email
+
+Admin 
+add Matiere
+add prof
+add eleve
+
+Prof:
+Contact
+1 Matiere
+Des Eleves
+
+Eleve:
+Contact
+ref_edof;
+// fac related emission_date;
+// fac related number_invoice;
+
+formation;
+civility; ...
+lastname;
+firstname;
+begin_session;
+end_session;
+number_hours;
+number_days;
+puht;
+mht;
+mttc;
+realisation_rate;

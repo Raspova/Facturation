@@ -2,25 +2,35 @@
     import ButonCard from "../butonCard.svelte";
     import SimplebuttonGreen from "../SimplebuttonGREEN.svelte";
     import SimplebuttonRed from "../SimplebuttonRED.svelte";
-    
-    let pageIndex = 0;
-    let students = getStudents(pageIndex);
-    
+ 
 
-    const getAll  = "https://ext.edusign.fr/v1/student?page=";
-    async function getStudents(pageIndex) {
-        let studentsBuff = await fetch( getAll + String(pageIndex), {
-            headers: {
-                "Authorization": "Bearer " +  import.meta.env.VITE_TOKEN,
-                "Content-Type": "application/json"
-            }
-        })
+    //let pageIndex = 0;
+    let offset = 0;
+    let students = getStudents(offset);
+    //const pool = new pg.Pool();
+    
+    async function getStudents(offset) {
+        let studentsBuff =  await fetch("/api/admin-" + String(offset));
         let res = await studentsBuff.json()
-        if (res.status == "error")
-            throw () => {}
         console.log(res)
-        return res.result;
+        return res.results;
     }
+    
+        //pool.query("SELECT * FROM student_contacts ORDER BY lastname LIMIT 100 OFFSET " + offset)
+        //.then(res => (students = res.rows))
+       // const getAll  = "https://ext.edusign.fr/v1/student?page=";
+       // let studentsBuff = await fetch( getAll + String(pageIndex), {
+       //     headers: {
+       //         "Authorization": "Bearer " +  import.meta.env.VITE_TOKEN,
+       //         "Content-Type": "application/json"
+       //     }
+       // })
+       // let res = await studentsBuff.json()
+       // if (res.status == "error")
+       //     throw () => {}
+       // console.log(res)
+       // return res.result;
+    //}
 </script>
     
 <svelte:head>
@@ -62,11 +72,12 @@ header {
     <div>
         {#await students}
             <h2>LOADING</h2>    
-        {:then stuInfo} 
+        {:then stuInfo}        
             {#each  stuInfo as data}
                 <p><ButonCard data={data}></ButonCard></p>
             {/each}
         {:catch error}
+            {error}
             <h1>No Pages Here (￣～￣;) </h1>
         {/await}
     </div>
@@ -77,10 +88,10 @@ header {
     <h1>Facturation</h1> 
     <nav>
         <div id="nav">
-            <SimplebuttonGreen value="Next" on:click={() => { pageIndex++ ;students = getStudents(pageIndex)}} ></SimplebuttonGreen>
-            {#if pageIndex > 0}
+            <SimplebuttonGreen value="Next" on:click={() => { offset+= 100 ;students = getStudents(offset)}} ></SimplebuttonGreen>
+            {#if offset > 0}
             <br>
-            <SimplebuttonRed value="Back" on:click={() => { pageIndex-- ;students = getStudents(pageIndex)}} ></SimplebuttonRed>
+            <SimplebuttonRed value="Back" on:click={() => { offset-= 100 ;students = getStudents(offset)}} ></SimplebuttonRed>
             {/if}
         </div>
     </nav>
