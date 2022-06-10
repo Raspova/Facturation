@@ -4,7 +4,7 @@
     "src": ".svelte-kit/build/index.js",
     "isEntry": true,
     "imports": [
-      "_index-04ac6c45.js"
+      "_index-832d1400.js"
     ],
     "dynamicImports": [
       ".svelte-kit/build/hooks.js"
@@ -20,6 +20,11 @@
     "src": "src/routes/downloadPDF.js",
     "isEntry": true
   },
+  "src/routes/api/admin-[offset].js": {
+    "file": "entries/endpoints/api/admin-_offset_.js",
+    "src": "src/routes/api/admin-[offset].js",
+    "isEntry": true
+  },
   "src/routes/file/[id].js": {
     "file": "entries/endpoints/file/_id_.js",
     "src": "src/routes/file/[id].js",
@@ -30,7 +35,7 @@
     "src": ".svelte-kit/runtime/components/layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index-04ac6c45.js"
+      "_index-832d1400.js"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
@@ -38,7 +43,7 @@
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
-      "_index-04ac6c45.js"
+      "_index-832d1400.js"
     ]
   },
   "src/routes/[404].svelte": {
@@ -46,7 +51,7 @@
     "src": "src/routes/[404].svelte",
     "isEntry": true,
     "imports": [
-      "_index-04ac6c45.js"
+      "_index-832d1400.js"
     ],
     "css": [
       "assets/entries/pages/_404_.svelte-0241fe4d.css"
@@ -57,7 +62,7 @@
     "src": "src/routes/facture.svelte",
     "isEntry": true,
     "imports": [
-      "_index-04ac6c45.js"
+      "_index-832d1400.js"
     ],
     "css": [
       "assets/entries/pages/facture.svelte-b2a4c842.css"
@@ -68,9 +73,9 @@
     "src": "src/routes/file/[id].svelte",
     "isEntry": true,
     "imports": [
-      "_index-04ac6c45.js",
+      "_index-832d1400.js",
       "src/routes/facture.svelte",
-      "_SimplebuttonRED.svelte_svelte_type_style_lang-608e3322.js"
+      "_SimplebuttonRED.svelte_svelte_type_style_lang-24aab50a.js"
     ],
     "css": [
       "assets/entries/pages/file/_id_.svelte-61b95d85.css"
@@ -81,7 +86,7 @@
     "src": "src/routes/file/facture.svelte",
     "isEntry": true,
     "imports": [
-      "_index-04ac6c45.js"
+      "_index-832d1400.js"
     ],
     "css": [
       "assets/entries/pages/file/facture.svelte-6fd1632d.css"
@@ -92,7 +97,7 @@
     "src": "src/routes/file/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-04ac6c45.js"
+      "_index-832d1400.js"
     ]
   },
   "src/routes/index.svelte": {
@@ -100,8 +105,8 @@
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "imports": [
-      "_index-04ac6c45.js",
-      "_SimplebuttonRED.svelte_svelte_type_style_lang-608e3322.js"
+      "_index-832d1400.js",
+      "_SimplebuttonRED.svelte_svelte_type_style_lang-24aab50a.js"
     ],
     "css": [
       "assets/entries/pages/index.svelte-ab4c6de6.css"
@@ -112,19 +117,19 @@
     "src": "src/routes/scraper.svelte",
     "isEntry": true,
     "imports": [
-      "_index-04ac6c45.js"
+      "_index-832d1400.js"
     ],
     "css": [
       "assets/entries/pages/scraper.svelte-21a7295a.css"
     ]
   },
-  "_index-04ac6c45.js": {
-    "file": "chunks/index-04ac6c45.js"
+  "_index-832d1400.js": {
+    "file": "chunks/index-832d1400.js"
   },
-  "_SimplebuttonRED.svelte_svelte_type_style_lang-608e3322.js": {
-    "file": "chunks/SimplebuttonRED.svelte_svelte_type_style_lang-608e3322.js",
+  "_SimplebuttonRED.svelte_svelte_type_style_lang-24aab50a.js": {
+    "file": "chunks/SimplebuttonRED.svelte_svelte_type_style_lang-24aab50a.js",
     "imports": [
-      "_index-04ac6c45.js"
+      "_index-832d1400.js"
     ],
     "css": [
       "assets/SimplebuttonRED.svelte_svelte_type_style_lang-fded8c01.css"

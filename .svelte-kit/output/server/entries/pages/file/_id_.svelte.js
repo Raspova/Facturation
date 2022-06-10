@@ -1,31 +1,6 @@
-import { g as getContext, c as create_ssr_component, a as add_attribute, e as escape, v as validate_component, b as createEventDispatcher, d as subscribe, i as is_promise, n as noop } from "../../../chunks/index-04ac6c45.js";
+import { c as create_ssr_component, a as add_attribute, e as escape, v as validate_component, b as createEventDispatcher, i as is_promise, n as noop } from "../../../chunks/index-832d1400.js";
 import Facture from "../facture.svelte.js";
-import { S as SimplebuttonGREEN } from "../../../chunks/SimplebuttonRED.svelte_svelte_type_style_lang-608e3322.js";
-const getStores = () => {
-  const stores = getContext("__svelte__");
-  return {
-    page: {
-      subscribe: stores.page.subscribe
-    },
-    navigating: {
-      subscribe: stores.navigating.subscribe
-    },
-    get preloading() {
-      console.error("stores.preloading is deprecated; use stores.navigating instead");
-      return {
-        subscribe: stores.navigating.subscribe
-      };
-    },
-    session: stores.session,
-    updated: stores.updated
-  };
-};
-const page = {
-  subscribe(fn) {
-    const store = getStores().page;
-    return store.subscribe(fn);
-  }
-};
+import { S as SimplebuttonGREEN } from "../../../chunks/SimplebuttonRED.svelte_svelte_type_style_lang-24aab50a.js";
 var factureFormInner_svelte_svelte_type_style_lang = "";
 const css$4 = {
   code: ".input-container.svelte-1kn3rt.svelte-1kn3rt{height:50px;position:relative;width:100%;margin-top:30px}.input.svelte-1kn3rt.svelte-1kn3rt{background-color:#303245;border-radius:12px;border:0;box-sizing:border-box;color:#eee;font-size:18px;height:100%;outline:0;padding:4px 20px 0;width:100%}.cut.svelte-1kn3rt.svelte-1kn3rt{background-color:#15172b;border-radius:10px;height:20px;left:20px;position:absolute;top:-20px;transform:translateY(0);transition:transform 200ms;width:76px}.input.svelte-1kn3rt:focus~.cut.svelte-1kn3rt,.input.svelte-1kn3rt:not(:placeholder-shown)~.cut.svelte-1kn3rt{transform:translateY(8px)}.placeholder.svelte-1kn3rt.svelte-1kn3rt{color:#65657b;font-family:sans-serif;left:20px;line-height:14px;pointer-events:none;position:absolute;transform-origin:0 50%;transition:transform 200ms, color 200ms;top:20px}.input.svelte-1kn3rt:focus~.placeholder.svelte-1kn3rt,.input.svelte-1kn3rt:not(:placeholder-shown)~.placeholder.svelte-1kn3rt{transform:translateY(-30px) translateX(10px) scale(0.75)}.input.svelte-1kn3rt:not(:placeholder-shown)~.placeholder.svelte-1kn3rt{color:#808097}.input.svelte-1kn3rt:focus~.placeholder.svelte-1kn3rt{color:#dc2f55}",
@@ -243,17 +218,12 @@ function getDate() {
   return [year, month, day].join("-");
 }
 const U5Bidu5D = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let $page, $$unsubscribe_page;
-  $$unsubscribe_page = subscribe(page, (value) => $page = value);
-  const studentbyID = "https://ext.edusign.fr/v1/student/" + $page.params.id;
-  let studentsBuff = loadInfo();
-  let civility = "";
-  let formation;
-  let ref_edof;
-  let lastname;
-  let firstname;
+  let { formation } = $$props;
+  let { ref_edof } = $$props;
+  let { lastname } = $$props;
+  let { firstname } = $$props;
   let emission_date = getDate();
-  let number_invoice;
+  let { number_invoice } = $$props;
   let { number_hours } = $$props;
   let { begin_session } = $$props;
   let { end_session } = $$props;
@@ -262,23 +232,17 @@ const U5Bidu5D = create_ssr_component(($$result, $$props, $$bindings, slots) => 
   let { mttc } = $$props;
   let number_days = "";
   let realisation_rate;
-  async function loadInfo() {
-    let buff = await fetch(studentbyID, {
-      headers: {
-        "Authorization": "Bearer 1bd071cb742faf8823fbc0889cfbf23c4fbb3bf2aded73a75b4c167e3fd58b53",
-        "Content-Type": "application/json"
-      }
-    });
-    let ret = await buff.json();
-    if (ret.status != "success")
-      return;
-    let res = ret.result;
-    formation = res.TRAINING_NAME;
-    ref_edof = res.FILE_NUMBER;
-    firstname = res.FIRSTNAME;
-    lastname = res.LASTNAME;
-    return ret;
-  }
+  let civility = "";
+  if ($$props.formation === void 0 && $$bindings.formation && formation !== void 0)
+    $$bindings.formation(formation);
+  if ($$props.ref_edof === void 0 && $$bindings.ref_edof && ref_edof !== void 0)
+    $$bindings.ref_edof(ref_edof);
+  if ($$props.lastname === void 0 && $$bindings.lastname && lastname !== void 0)
+    $$bindings.lastname(lastname);
+  if ($$props.firstname === void 0 && $$bindings.firstname && firstname !== void 0)
+    $$bindings.firstname(firstname);
+  if ($$props.number_invoice === void 0 && $$bindings.number_invoice && number_invoice !== void 0)
+    $$bindings.number_invoice(number_invoice);
   if ($$props.number_hours === void 0 && $$bindings.number_hours && number_hours !== void 0)
     $$bindings.number_hours(number_hours);
   if ($$props.begin_session === void 0 && $$bindings.begin_session && begin_session !== void 0)
@@ -300,12 +264,13 @@ const U5Bidu5D = create_ssr_component(($$result, $$props, $$bindings, slots) => 
       if (is_promise(__value)) {
         __value.then(null, noop);
         return `
-        LOADING
+    LOADING
     `;
       }
-      return function(data) {
+      return function(a) {
         return ` 
-        ${data.status != "success" ? `(\uFF1E\uFE4F\uFF1C) SOMETHING WHEN WRONG; (Bad id ?)` : `<div id="${"form"}" class="${"svelte-fr9utl"}">${validate_component(FactureForm, "FactureForm").$$render($$result, {
+   
+    <div id="${"form"}" class="${"svelte-fr9utl"}">${validate_component(FactureForm, "FactureForm").$$render($$result, {
           number_invoice,
           begin_session,
           end_session,
@@ -383,7 +348,7 @@ const U5Bidu5D = create_ssr_component(($$result, $$props, $$bindings, slots) => 
             $$settled = false;
           }
         }, {})}</div>
-        <div id="${"fac"}" class="${"svelte-fr9utl"}">${validate_component(Facture, "Facture").$$render($$result, {
+    <div id="${"fac"}" class="${"svelte-fr9utl"}">${validate_component(Facture, "Facture").$$render($$result, {
           number_invoice,
           begin_session,
           end_session,
@@ -399,10 +364,10 @@ const U5Bidu5D = create_ssr_component(($$result, $$props, $$bindings, slots) => 
           firstname,
           emission_date,
           civility
-        }, {}, {})}</div>`}
+        }, {}, {})}</div>
     `;
-      }(__value);
-    }(studentsBuff)}</main>
+      }();
+    }(formation)}</main>
 
 ${validate_component(HeadBar, "HeadBar").$$render($$result, {
       grennText: "Valid\xE9",
@@ -410,7 +375,6 @@ ${validate_component(HeadBar, "HeadBar").$$render($$result, {
       linkRed: "/"
     }, {}, {})}`;
   } while (!$$settled);
-  $$unsubscribe_page();
   return $$rendered;
 });
 export { U5Bidu5D as default };

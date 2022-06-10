@@ -12,13 +12,6 @@ function blank_object() {
 function run_all(fns) {
   fns.forEach(run);
 }
-function subscribe(store, ...callbacks) {
-  if (store == null) {
-    return noop;
-  }
-  const unsub = store.subscribe(...callbacks);
-  return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
-}
 function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
   const e = document.createEvent("CustomEvent");
   e.initCustomEvent(type, bubbles, cancelable, detail);
@@ -50,9 +43,6 @@ function createEventDispatcher() {
 function setContext(key, context) {
   get_current_component().$$.context.set(key, context);
   return context;
-}
-function getContext(key) {
-  return get_current_component().$$.context.get(key);
 }
 Promise.resolve();
 const escaped = {
@@ -127,4 +117,4 @@ function add_attribute(name, value, boolean) {
   const assignment = boolean && value === true ? "" : `="${escape_attribute_value(value.toString())}"`;
   return ` ${name}${assignment}`;
 }
-export { add_attribute as a, createEventDispatcher as b, create_ssr_component as c, subscribe as d, escape as e, each as f, getContext as g, is_promise as i, missing_component as m, noop as n, setContext as s, validate_component as v };
+export { add_attribute as a, createEventDispatcher as b, create_ssr_component as c, each as d, escape as e, is_promise as i, missing_component as m, noop as n, setContext as s, validate_component as v };

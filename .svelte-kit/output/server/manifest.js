@@ -3,7 +3,7 @@ export const manifest = {
 	assets: new Set(["favicon.png","logo.png"]),
 	mimeTypes: {".png":"image/png"},
 	_: {
-		entry: {"file":"start-b56378c2.js","js":["start-b56378c2.js","chunks/index-ec3b9e32.js"],"css":[]},
+		entry: {"file":"start-1474a6d0.js","js":["start-1474a6d0.js","chunks/index-9b298f62.js"],"css":[]},
 		nodes: [
 			() => import('./nodes/0.js'),
 			() => import('./nodes/1.js'),
@@ -86,6 +86,14 @@ export const manifest = {
 				shadow: null,
 				a: [0,6],
 				b: [1]
+			},
+			{
+				type: 'endpoint',
+				id: "api/admin-[offset]",
+				pattern: /^\/api\/admin-([^/]+?)\/?$/,
+				names: ["offset"],
+				types: [null],
+				load: () => import('./entries/endpoints/api/admin-_offset_.js')
 			},
 			{
 				type: 'page',

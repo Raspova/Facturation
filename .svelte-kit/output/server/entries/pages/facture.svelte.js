@@ -1,4 +1,4 @@
-import { c as create_ssr_component, e as escape } from "../../chunks/index-04ac6c45.js";
+import { c as create_ssr_component, e as escape } from "../../chunks/index-832d1400.js";
 var facture_svelte_svelte_type_style_lang = "";
 const css = {
   code: '@charset "UTF-8";.Bloc-Recipient.svelte-rrz5p0{width:45%;height:15vh;border-style:solid;border-width:1px;text-align:center;font-size:80%;font-weight:bold;margin-left:50%;margin-top:-6%}td.svelte-rrz5p0,th.svelte-rrz5p0{border:1px solid rgb(190, 190, 190);padding:10px}td.svelte-rrz5p0{text-align:center}tr.svelte-rrz5p0:nth-child(even){background-color:#eee}th[scope="col"].svelte-rrz5p0{background-color:#507895;color:#fff}th[scope="row"].svelte-rrz5p0{background-color:#d7d9f2}table.svelte-rrz5p0{border-collapse:collapse;border:2px solid rgb(200, 200, 200);letter-spacing:1px;font-family:sans-serif;font-size:.8rem;width:100%}.Table-Margin.svelte-rrz5p0{margin-top:5%}',

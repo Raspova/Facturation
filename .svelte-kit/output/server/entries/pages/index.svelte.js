@@ -1,5 +1,5 @@
-import { c as create_ssr_component, a as add_attribute, i as is_promise, n as noop, f as each, v as validate_component } from "../../chunks/index-04ac6c45.js";
-import { S as SimplebuttonGREEN } from "../../chunks/SimplebuttonRED.svelte_svelte_type_style_lang-608e3322.js";
+import { c as create_ssr_component, a as add_attribute, i as is_promise, n as noop, d as each, v as validate_component } from "../../chunks/index-832d1400.js";
+import { S as SimplebuttonGREEN } from "../../chunks/SimplebuttonRED.svelte_svelte_type_style_lang-24aab50a.js";
 var butonCard_svelte_svelte_type_style_lang = "";
 const css$1 = {
   code: '@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");@media(hover: hover){#creditcard.svelte-16ileht.svelte-16ileht{transform:translateY(110px);transition:transform 0.1s ease-in-out}#money.svelte-16ileht.svelte-16ileht{transform:translateY(180px);transition:transform 0.1s ease-in-out}button.svelte-16ileht:hover #creditcard.svelte-16ileht{transform:translateY(0px);transition:transform 0.2s ease-in-out}button.svelte-16ileht:hover #money.svelte-16ileht{transform:translateY(0px);transition:transform 0.3s ease-in-out}}@keyframes svelte-16ileht-bounce{0%{transform:translateY(0)}50%{transform:translateY(-0.25rem)}100%{transform:translateY(0)}}.button.svelte-16ileht:hover .button__text span.svelte-16ileht{transform:translateY(-0.25rem);transition:transform .2s ease-in-out}.button.svelte-16ileht.svelte-16ileht{width:100%;border:none;outline:none;background-color:purple;padding:1rem 90px 1rem 2rem;position:relative;border-radius:8px;letter-spacing:0.7px;background-color:#5086bd;color:#A9FFF7;font-size:21px;font-family:"Lato", sans-serif;cursor:pointer;box-shadow:rgba(0, 9, 61, 0.2) 0px 4px 8px 0px}.button.svelte-16ileht.svelte-16ileht:active{transform:translateY(1px)}.button__svg.svelte-16ileht.svelte-16ileht{position:absolute;overflow:visible;bottom:6px;right:0.2rem;height:140%}',
@@ -9,8 +9,8 @@ let wallet_colorsPrim = "#a4bdc1";
 let wallet_colorsSeg = "#7b8f91";
 const ButonCard = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let { data } = $$props;
-  const buttonInner = data.FILE_NUMBER + "<br>" + data.LASTNAME + " " + data.FIRSTNAME;
-  const link = "/file/" + data.ID;
+  const buttonInner = data.lastname + " " + data.firstname + "<br>" + data.email;
+  const link = "/file/" + data.id;
   if ($$props.data === void 0 && $$bindings.data && data !== void 0)
     $$bindings.data(data);
   $$result.css.add(css$1);
@@ -26,24 +26,15 @@ const css = {
   code: "h1.svelte-1opyav{color:#253031;border-radius:5%;margin-left:10%}body{margin:10%;min-height:100vh;background:#fff}header.svelte-1opyav{width:100%;background-color:rgba(255, 255, 255, 0.899);position:fixed;top:0;left:0;display:grid;grid-template-columns:75% 15% 10%;column-gap:20px}#nav.svelte-1opyav{display:grid;margin-top:10px}",
   map: null
 };
-const getAll = "https://ext.edusign.fr/v1/student?page=";
-async function getStudents(pageIndex) {
-  let studentsBuff = await fetch(getAll + String(pageIndex), {
-    headers: {
-      "Authorization": "Bearer 1bd071cb742faf8823fbc0889cfbf23c4fbb3bf2aded73a75b4c167e3fd58b53",
-      "Content-Type": "application/json"
-    }
-  });
+async function getStudents(offset) {
+  let studentsBuff = await fetch("/api/admin-" + String(offset));
   let res = await studentsBuff.json();
-  if (res.status == "error")
-    throw () => {
-    };
   console.log(res);
-  return res.result;
+  return res.results;
 }
 const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let pageIndex = 0;
-  let students = getStudents(pageIndex);
+  let offset = 0;
+  let students = getStudents(offset);
   $$result.css.add(css);
   return `${$$result.head += `${$$result.title = `<title>Facturation Center</title>`, ""}`, ""}
 
@@ -58,7 +49,7 @@ const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
         `;
     }
     return function(stuInfo) {
-      return ` 
+      return `        
             ${each(stuInfo, (data) => {
         return `<p>${validate_component(ButonCard, "ButonCard").$$render($$result, { data }, {}, {})}</p>`;
       })}
