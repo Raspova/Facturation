@@ -2,8 +2,8 @@ import pg from "pg";
 import "dotenv/config";
 async function get({ params }) {
   const pool = new pg.Pool();
-  resultUser = await pool.query("SELECT * FROM student_contacts WHERE id = $1;", [params.id]);
-  resultFac = await pool.query("SELECT * FROM facturation WHERE fk_user_contact = $1;", [params.id]);
+  let resultUser = await pool.query("SELECT * FROM student_contacts WHERE id = $1;", [params.id]);
+  let resultFac = await pool.query("SELECT * FROM facturation WHERE fk_user_contact = $1;", [params.id]);
   let user = resultUser.rows[0];
   let fac = resultFac.rows[0];
   let formation = fac.formation;
