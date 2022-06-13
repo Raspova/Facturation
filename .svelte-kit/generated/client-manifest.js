@@ -1,17 +1,17 @@
 export { matchers } from './client-matchers.js';
 
 export const components = [
-	() => import("../runtime/components/layout.svelte"),
-	() => import("../runtime/components/error.svelte"),
-	() => import("../../src/routes/[404].svelte"),
-	() => import("../../src/routes/facture.svelte"),
-	() => import("../../src/routes/file/[id].svelte"),
-	() => import("../../src/routes/file/facture.svelte"),
-	() => import("../../src/routes/file/index.svelte"),
-	() => import("../../src/routes/home.svelte"),
-	() => import("../../src/routes/index.svelte"),
-	() => import("../../src/routes/login.svelte"),
-	() => import("../../src/routes/scraper.svelte")
+	() => import("..\\runtime\\components\\layout.svelte"),
+	() => import("..\\runtime\\components\\error.svelte"),
+	() => import("..\\..\\src\\routes\\[404].svelte"),
+	() => import("..\\..\\src\\routes\\facture.svelte"),
+	() => import("..\\..\\src\\routes\\file\\[id].svelte"),
+	() => import("..\\..\\src\\routes\\file\\facture.svelte"),
+	() => import("..\\..\\src\\routes\\file\\index.svelte"),
+	() => import("..\\..\\src\\routes\\home.svelte"),
+	() => import("..\\..\\src\\routes\\index.svelte"),
+	() => import("..\\..\\src\\routes\\login.svelte"),
+	() => import("..\\..\\src\\routes\\scraper.svelte")
 ];
 
 export const dictionary = {

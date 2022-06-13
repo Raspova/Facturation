@@ -1,225 +1,96 @@
-<script>
-	import onMount from 'svelte';
-	export let _url;
-	let overlay;
-	
-</script>
 
-<style>
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-
-* {
-	box-sizing: border-box;
+    <style>
+        * {
+  padding: 0;
+  margin: 0;
+  color: #1a1f36;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
 }
-
- 
-h1 {
-	font-weight: bold;
-	margin: 0;
-}
-
- 
-p {
-	font-size: 14px;
-	font-weight: 100;
-	line-height: 20px;
-	letter-spacing: 0.5px;
-	margin: 20px 0 30px;
-}
-
-span {
-	font-size: 12px;
+    input{
+font-size: 16px;
+    line-height: 28px;
+    padding: 8px 16px;
+    width: 100%;
+    min-height: 44px;
+    border: unset;
+    border-radius: 4px;
+    outline-color: rgb(84 105 212 / 0.5);
+    background-color: #eff1fb;
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+    margin-bottom: 20px;
 }
 
-a {
-	color: #333;
-	font-size: 14px;
-	text-decoration: none;
-	margin: 15px 0;
+input[type="submit"] {
+    margin-top: 25px;
+    font-weight: 700;
+    font-size: 20px;
+    background-color: rgb(84, 105, 212);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 
+                rgb(84, 105, 212) 0px 0px 0px 1px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
+    color: #fff;
+
+    cursor: pointer;
 }
 
-button {
-	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
-	color: #FFFFFF;
-	font-size: 12px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	transition: transform 80ms ease-in;
+.container-form h2{
+    margin-bottom: 40px;
+    color: #222d3d;
+}
+.container-form label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+    color: #222d3d;
+    font-weight: 600;
 }
 
-button:active {
-	transform: scale(0.95);
+.container-form{
+    margin: auto;
+    max-width:750px;
+    padding: 30px 50px;
+    margin-top: 100px;
+    border-radius: 5px;
 }
+@media (max-width: 900px) {
 
-button:focus {
-	outline: none;
-}
-
-button.ghost {
-	background-color: transparent;
-	border-color: #FFFFFF;
-}
-
-form {
-	background-color: #FFFFFF;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 50px;
-	height: 100%;
-	text-align: center;
-}
-
-input {
-	background-color: #eee;
-	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
-	width: 100%;
-}
-
-.container {
-	background-color: #fff;
-	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
-	position: relative;
-	overflow: hidden;
-	width: 768px;
-	max-width: 100%;
-	min-height: 480px;
-}
-
-.form-container {
-	position: absolute;
-	top: 0;
-	height: 100%;
-	transition: all 0.6s ease-in-out;
-}
-.sign-in-container {
-	left: 0;
-	width: 50%;
-	z-index: 2;
-}
-.sign-up-container {
-	left: 0;
-	width: 50%;
-	opacity: 0;
-	z-index: 1;
-}
-@keyframes show {
-	0%, 49.99% {
-		opacity: 0;
-		z-index: 1;
-	}
-	
-	50%, 100% {
-		opacity: 1;
-		z-index: 5;
+	.container-form{
+		margin-top: 10px;
 	}
 }
-.overlay-container {
-	position: absolute;
-	top: 0;
-	left: 50%;
-	width: 50%;
-	height: 100%;
-	overflow: hidden;
-	transition: transform 0.6s ease-in-out;
-	z-index: 100;
+form{
+    display: flex;
+    flex-direction: column;
 }
 
-
-@media ( max-width : 400px) {
-  .overlay-container{
-    /*display: none; */
-    width: 0;
-  }
-  .overlay-panel {
-    width: 200%;
-  }
-}
-
-.overlay {
-  background-image: url("Admin3.jpg");
-	/* background: #FF416C; */
-	/* background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C); */
-	/* background: linear-gradient(to right, #FF4B2B, #FF416C); */
-	background-repeat: round;
-	background-size: contain;
-
-	/* background-position: 0 0; */
-	color: #FFFFFF;
-	position: relative;
-	/* left: -100%; */
-	height: 100%;
-	width: 200%;
-  	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-}
-.overlay-panel {
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 40px;
-	text-align: center;
-	top: 0;
-	height: 100%;
-	width: 50%;
-	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
-}
-.overlay-left {
-	transform: translateX(-20%);
-}
-.overlay-right {
-	right: 0;
-	transform: translateX(0);
-}
-#hello {
-  position:absolute;
-  top: 4%;
-  left: 20%;
-  color: #333;
-}
-</style>
+    </style>
 
 
-<div class="container" id="container">
-	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Create Account</h1>
-      <br>
-			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form action="#">
-			<h1>Sign in</h1>
-      <br>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay" bind:this={overlay}>
-			<!-- style="background-image: url('{_url}');" -->
-			<div class="overlay-panel overlay-right">
-				<!-- <h1 id="hello">Hello, Friend!</h1> -->
-			</div>
-		</div>
-	</div>
-</div>
+
+    <div class="container-form">
+        <h2>Connectez-vous à votre compte
+        </h2>
+
+        <form action="">
+            
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" name="username" placeholder="Nom d'utilisateur">
+
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" placeholder="Mot de passe">
+            
+            <input type="submit" name="submit" value="Se connecter">
+        </form>
+    </div>
