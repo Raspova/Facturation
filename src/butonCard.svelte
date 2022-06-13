@@ -3,8 +3,8 @@
 
     let wallet_colorsPrim = "#a4bdc1";
     let wallet_colorsSeg = "#7b8f91";
-    const buttonInner = data.FILE_NUMBER + "<br>" + data.LASTNAME + " "+ data.FIRSTNAME
-    const link = "/file/" + data.ID ;
+    const buttonInner = data.lastname +" "+ data.firstname + "<br>" + data.email
+    const link = "/file/" + data.id ;
     //@html writing
     //RED
     // let wallet_colorsPrim = "#ae2d1ff2";
@@ -97,7 +97,7 @@
 
 </style>
 
-<a href={link}>
+<a href={link}> 
 <button class="button">
     <span class="button__text">
       <!-- <span>b</span><span>u</span>y</span><span> </span><span>s</span><span>t</span><span>u</span><span>f</span><span>f</span> -->

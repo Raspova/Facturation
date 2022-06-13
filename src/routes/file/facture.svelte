@@ -113,7 +113,7 @@ tr:nth-child(even) {
 
 th[scope="col"] {
     background-color: #507895;
-    color: #fff;
+    color: #111;
 }
 
 th[scope="row"] {
@@ -122,6 +122,8 @@ th[scope="row"] {
 
 main {
     background-color: #fff;
+    width: 600;
+    height: 900;
 }
     
 table {

@@ -16,8 +16,6 @@
     export let mht;
     export let mttc;
     export let realisation_rate;
-
-    console.log(" popo " + ref_edof);
 </script>
 
 <style>
@@ -30,9 +28,7 @@
   padding: 30px;
   width: 100%;
 }
-.cut-short {
-  width: 50px;
-}
+ 
 .title {
   color: #eee;
   top: 0;
@@ -87,5 +83,5 @@
     <FactureFormInner  bind:value={mht}  str="Montant Hors Taxe" ></FactureFormInner>
     <FactureFormInner  bind:value={mttc}  str="Montant Tout Compris" ></FactureFormInner>
 
-    <button type="text" class="submit">submit</button>
+    <!-- <button type="text" class="submit">submit</button> -->
 </div>
