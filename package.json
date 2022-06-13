@@ -21,6 +21,8 @@
 		"fetch": "^1.1.0",
 		"jspdf": "^2.4.0",
 		"pg": "^8.7.3",
-		"puppeteer": "^14.1.2"
+		"puppeteer": "^14.1.2",
+		"sass": "^1.52.3",
+		"svelte-preprocess": "^4.10.7"
 	}
 }
