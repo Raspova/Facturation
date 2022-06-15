@@ -20,10 +20,11 @@
           "Content-Type": "application/json",
         },
       });
-	  console.log( "res =>", res);
-      if (res.ok) {
+	  //console.log( "res =>", res.ok);
+      if (res.ok)
         dispatch("OK");
-      } else dispatch("KO");
+      else 
+        dispatch("KO");
     } catch {
 	    console.log("ERRROR");
       dispatch("KO");

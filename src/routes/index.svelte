@@ -1,6 +1,20 @@
+<script context="module">
+  export async function load({session}) {
+      if (session.authentificated) {
+          return {
+              status:302,
+              redirect: '/home'
+          }
+      }
+      return {
+          status:200
+      }
+  }
+</script>
+
 <script>
   import { onMount } from "svelte";
-  import {goto} from '$app/navigation';
+  import { goto } from '$app/navigation';
   import Login from "../login.svelte";
 
   $: panels = null;
