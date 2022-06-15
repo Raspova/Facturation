@@ -7,7 +7,7 @@
     export let number_invoice;
     export let emission_date;
     export let ref_edof;
-    export let civility;
+    export let civility = "";
     export let lastname;
     export let firstname;
     export let begin_session;
@@ -32,7 +32,7 @@
 	font-size: 80%;
 	font-weight: bold;
 	margin-left: 50%;
-	margin-top: -6%;
+	
 }
 
 td,
@@ -71,10 +71,14 @@ table {
 .Table-Margin {
 	margin-top: 5%;
 }
+
+#logo{
+    margin-top: 2%
+}
 </style>
 
 <main>
-  <img class="" src="/logo.png" alt="Plateformation-Logo" width="200">
+  <img id="logo" src="/logo2.svg" alt="Plateformation-Logo" width="200" >
   <div class="Bloc-Recipient">
     <p>{company}<br/>
     {address}<br/>
@@ -103,8 +107,8 @@ table {
           <th scope="col">Session</th>
       </tr>
       <tr>
-          <td >{civility} {lastname} {firstname}</td>
-          <td>{begin_session} au {end_session}<br/>Certification ICDL</td>
+        <td >{civility} {lastname} {firstname}</td>
+        <td>{begin_session} au {end_session}<br/>Certification ICDL</td>
       </tr>
   </table>
   <table class="Table-Margin">

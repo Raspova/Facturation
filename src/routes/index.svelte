@@ -90,7 +90,7 @@
 
 <!-- FORMULAIRE -->
 {#if statusActif}
-  <Login on:OK={() => {goto("/home")}} on:KO={()=> {alert("Nom d'utilistaeur ou mot de passe incorrecte")}}/>
+  <Login on:OK={() => {var a = document.createElement('a'); a.href = "/home"; a.click()}} on:KO={()=> {alert("Nom d'utilistaeur ou mot de passe incorrecte")}}/>
 
   <style>
     .panel {

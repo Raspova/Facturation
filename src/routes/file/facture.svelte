@@ -62,24 +62,6 @@
     export let mht;
     export let mttc;
     export let realisation_rate;
-    //onMount(() => {
-    //formation  =  localStorage.getItem("formation");
-    //number_invoice =  localStorage.getItem("number_invoice");
-    //emission_date = localStorage.getItem("emission_date" );
-    //ref_edof = localStorage.getItem("ref_edof");
-    //civility = localStorage.getItem("civility");
-    //lastname = localStorage.getItem("lastname");
-    //firstname = localStorage.getItem("firstname");
-    //begin_session = localStorage.getItem("begin_session");
-    //end_session = localStorage.getItem("end_session");
-    //number_hours = localStorage.getItem("number_hours");
-    //number_days = localStorage.getItem("number_days");
-    //puht = localStorage.getItem("puht");
-    //mht = localStorage.getItem("mht");
-    //mttc = localStorage.getItem("mttc");
-    //realisation_rate = localStorage.getItem("realisation_rat");
-    //}) 
-
 </script>
 
 <style>
@@ -94,7 +76,7 @@
 	font-size: 80%;
 	font-weight: bold;
 	margin-left: 50%;
-	margin-top: -6%;
+	
 }
 
 td,
@@ -113,19 +95,14 @@ tr:nth-child(even) {
 
 th[scope="col"] {
     background-color: #507895;
-    color: #111;
+    color: #fff;
 }
 
 th[scope="row"] {
     background-color: #d7d9f2;
 }
 
-main {
-    background-color: #fff;
-    width: 600;
-    height: 900;
-}
-    
+
 table {
     border-collapse: collapse;
     border: 2px solid rgb(200, 200, 200);
@@ -138,10 +115,14 @@ table {
 .Table-Margin {
 	margin-top: 5%;
 }
+
+#logo{
+    margin-top: 2%
+}
 </style>
 
 <main>
-  <img class="" src="/logo.png" alt="Plateformation-Logo" width="200">
+  <img id="logo" src="/logo2.svg" alt="Plateformation-Logo" width="200" >
   <div class="Bloc-Recipient">
     <p>{company}<br/>
     {address}<br/>
@@ -170,8 +151,8 @@ table {
           <th scope="col">Session</th>
       </tr>
       <tr>
-          <td >{civility} {lastname} {firstname}</td>
-          <td>{begin_session} au {end_session}<br/>Certification ICDL</td>
+        <td >{civility} {lastname} {firstname}</td>
+        <td>{begin_session} au {end_session}<br/>Certification ICDL</td>
       </tr>
   </table>
   <table class="Table-Margin">
