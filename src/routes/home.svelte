@@ -1,3 +1,17 @@
+<script context="module">
+    export async function load({session}) {
+        if (!session.authentificated) {
+            return {
+                status:302,
+                redirect: '/'
+            }
+        }
+        return {
+            status:200
+        }
+    }
+</script>
+
 <script>
     import ButonCard from "../butonCard.svelte";
     import SimplebuttonGreen from "../SimplebuttonGREEN.svelte";

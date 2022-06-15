@@ -145,6 +145,6 @@
     {/await}
 </main>
 
-<HeadBar grennText="Validé" redText="Annulé" linkRed ="/"  on:Green_click={() => {storeInfo()}} >
+<HeadBar grennText="Validé" redText="Annulé" linkRed ="/home"  on:Green_click={() => {storeInfo()}} >
 
 </HeadBar>
