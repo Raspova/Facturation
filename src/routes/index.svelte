@@ -262,15 +262,15 @@
     text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.3);
   }
   #div_id1 {
-    background-image: url("Admin3.jpg");
+    background-image: url("/Admin3.jpg");
     background-position: 46% 8%;
   }
   #div_id2 {
-    background-image: url("Formateur.jpg");
+    background-image: url("/Formateur.jpg");
     background-position: 49% 24%;
   }
   #div_id3 {
-    background-image: url("Etudiant.jpg");
+    background-image: url("/Etudiant.jpg");
     background-position: 46% 34%;
   }
 
