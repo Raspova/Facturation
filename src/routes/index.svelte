@@ -66,7 +66,7 @@
     bind:this={panel1}
     class:selected={statusActif === "admin"}
   >
-    <h2>Admin</h2>
+    <h2>Administrateur</h2>
   </div>
   <div
     class="panel active"
