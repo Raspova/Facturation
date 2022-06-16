@@ -26,6 +26,7 @@ export async function checkSession(session_id ) {
 }
 
 function getArrFromCookie(str, target) {
+    str = str.split(" ").join("");
     const arr = str.split(";").map(e => e.split("="));
     
     for(let i = 0; i < arr.length; i++) {
