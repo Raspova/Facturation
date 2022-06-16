@@ -1,3 +1,17 @@
+<script context="module">
+  export async function load({session}) {
+      if (!session.authentificated) {
+          return {
+              status:302,
+              redirect: '/'
+          }
+      }
+      return {
+          status:200
+      }
+  }
+</script>
+
 <script>
   import { createEventDispatcher } from "svelte";
   // import bcrypt from 'bcrypt'
@@ -7,23 +21,31 @@
   let email;
   let password;
   let passwordCp;
-  let phone = "buff";
-  let lastname = "buff";
-  let firstname = "buff";
-  let status;
+  let phone;
+  let lastname;
+  let firstname;
+  let status = "prof";
 
   async function register() {
     // const error  =undefined;
-    if (password != passwordCp && password != "") throw "error passWordinvalid";
+    //console.log(password)
+    console.log(status);
+    if (password !== passwordCp && password != "") {
+      alert("Mots de passe non-égal")
+      throw "error passWordinvalid";
+    }
     try {
+      //return;
       res = await fetch("/api/auth/register", {
         method: "POST",
         body: JSON.stringify({
+          status,
           lastname,
           firstname,
           phone,
           email,
           password, //:Hash(password)
+          status
         }),
         headers: {
           "Content-Type": "application/json",
@@ -43,46 +65,49 @@
 <div class="container-form">
   <h2>Enregistrez une personne</h2>
 
-  <form action="">
+ 
     <div class="radio-btn">
       <div>
         <label for="admin">Administrateur</label>
-        <input type="radio" id="admin" name="statut" value="admin" />
+        <input bind:group={status} type="radio" id="admin" name="statut" value="admin" />
       </div>
 
       <div>
         <label for="student">Etudiant</label>
-        <input
+        <input bind:group={status}
           type="radio"
           id="student"
           name="statut"
           value="student"
-          checked
+          
         />
       </div>
 
       <div>
         <label for="prof">Enseignant</label>
-        <input type="radio" id="prof" name="statut" value="prof" />
+        <input bind:group={status} type="radio" id="prof" name="statut" value="prof"/>
       </div>
     </div>
-
+    <form action="">
     <label for="username">Nom</label>
-    <input type="text" name="name" placeholder="Nom" />
+    <input required type="text" name="name" placeholder="Nom" bind:value={lastname}/>
 
     <label for="username">Prenom</label>
-    <input type="text" name="firstname" placeholder="Prenom" />
+    <input required  type="text" name="firstname" placeholder="Prenom" bind:value={firstname}/>
 
     <label for="email">Email</label>
-    <input type="email" name="email" placeholder="Email" />
+    <input required  type="email" name="email" placeholder="Email" bind:value={email} />
 
     <label for="phone">Téléphone</label>
-    <input type="text" name="phone" placeholder="Téléphone" />
+    <input type="text" name="phone" placeholder="Téléphone" bind:value={phone}/>
 
     <label for="password">Mot de passe</label>
-    <input type="password" name="password" placeholder="Mot de passe" />
+    <input required type="password" name="password" placeholder="Mot de passe" bind:value={password}/>
+    
+    <label for="passwordCp">Confirmer le mot de passe</label>
+    <input required  type="password" name="password" placeholder="Mot de passe" bind:value={passwordCp}/>
 
-    <input type="submit" name="submit" value="Valider" />
+    <input type="submit" name="submit" value="Valider" on:click={() => {register()}} />
   </form>
 </div>
 
@@ -148,10 +173,7 @@
       margin-top: 10px;
     }
   }
-  form {
-    display: flex;
-    flex-direction: column;
-  }
+ 
   .radio-btn {
     display: flex;
     justify-content: space-around;

@@ -25,13 +25,23 @@ export async function checkSession(session_id ) {
     
 }
 
+function getArrFromCookie(str, target) {
+    const arr = str.split(";").map(e => e.split("="));
+    
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i][0] === target) {
+            return arr[i][1];
+        }
+    }
+}
+
 export async function getSession({request}){
     if (!request.headers.get('cookie'))
         return {
             authentificated: false
         };
-    const context = await checkSession(request.headers.get('cookie').split('=')[1])
-    console.log( request.headers.get('cookie').split('=')[1]); // MARCHERA QU'AVEC UN COOKIE LOL , FAIS UNE BOUCLE UN JOUR BATARD STP, CKEK LA KEY-> GET VALUE || UNDIFFINED
+    
+    const context = await checkSession(getArrFromCookie(request.headers.get('cookie') ,"session_id"));
     if (!context || !context.authentificated) {
         return {
             authentificated: false

@@ -16,12 +16,9 @@
     import ButonCard from "../butonCard.svelte";
     import SimplebuttonGreen from "../SimplebuttonGREEN.svelte";
     import SimplebuttonRed from "../SimplebuttonRED.svelte";
- 
 
-    //let pageIndex = 0;
     let offset = 0;
     let students = getStudents(offset);
-    //const pool = new pg.Pool();
     
     async function getStudents(offset) {
         let studentsBuff =  await fetch("/api/admin-" + String(offset));
@@ -29,22 +26,6 @@
         console.log(res)
         return res.results;
     }
-    
-        //pool.query("SELECT * FROM student_contacts ORDER BY lastname LIMIT 100 OFFSET " + offset)
-        //.then(res => (students = res.rows))
-       // const getAll  = "https://ext.edusign.fr/v1/student?page=";
-       // let studentsBuff = await fetch( getAll + String(pageIndex), {
-       //     headers: {
-       //         "Authorization": "Bearer " +  import.meta.env.VITE_TOKEN,
-       //         "Content-Type": "application/json"
-       //     }
-       // })
-       // let res = await studentsBuff.json()
-       // if (res.status == "error")
-       //     throw () => {}
-       // console.log(res)
-       // return res.result;
-    //}
 </script>
     
 <svelte:head>

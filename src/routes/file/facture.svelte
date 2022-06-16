@@ -76,7 +76,7 @@
 	font-size: 80%;
 	font-weight: bold;
 	margin-left: 50%;
-	
+	margin-top: -6%;
 }
 
 td,
@@ -95,14 +95,19 @@ tr:nth-child(even) {
 
 th[scope="col"] {
     background-color: #507895;
-    color: #fff;
+    color: #111;
 }
 
 th[scope="row"] {
     background-color: #d7d9f2;
 }
 
-
+main {
+    background-color: #fff;
+    width: 600;
+    height: 900;
+}
+    
 table {
     border-collapse: collapse;
     border: 2px solid rgb(200, 200, 200);
@@ -115,14 +120,10 @@ table {
 .Table-Margin {
 	margin-top: 5%;
 }
-
-#logo{
-    margin-top: 2%
-}
 </style>
 
 <main>
-  <img id="logo" src="/logo2.svg" alt="Plateformation-Logo" width="200" >
+  <img class="" src="/logo.png" alt="Plateformation-Logo" width="200">
   <div class="Bloc-Recipient">
     <p>{company}<br/>
     {address}<br/>
@@ -151,8 +152,8 @@ table {
           <th scope="col">Session</th>
       </tr>
       <tr>
-        <td >{civility} {lastname} {firstname}</td>
-        <td>{begin_session} au {end_session}<br/>Certification ICDL</td>
+          <td >{civility} {lastname} {firstname}</td>
+          <td>{begin_session} au {end_session}<br/>Certification ICDL</td>
       </tr>
   </table>
   <table class="Table-Margin">

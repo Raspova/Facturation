@@ -12,9 +12,7 @@ ERROR VIDE :
     Robin ,
     Rose ,
     Sandro ,
-    Test ,
-    Test ,
-
+    Test * 2
 ERROR Inexpected :
     FAURE -> "14 & 13",
     GOUX -> "5 + 10",
