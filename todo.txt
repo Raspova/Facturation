@@ -29,3 +29,7 @@ puht;
 mht;
 mttc;
 realisation_rate;
+
+
+
+FACTURER OU PAS ;num de facture  ; convention d'ecriture ; maj; barre ;

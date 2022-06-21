@@ -5,7 +5,7 @@ import { insert } from 'svelte/internal';
 
 const insertProf = 
 "Insert Into\
-  contact_profs (lastname, firstname, email, phone, pass)\
+  contact_prof (lastname, firstname, email, phone, pass)\
 values\
   ( $1, $2, $3, $4, 'NULL')"
 

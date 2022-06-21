@@ -3,7 +3,7 @@
 
     let wallet_colorsPrim = "#a4bdc1";
     let wallet_colorsSeg = "#7b8f91";
-    const buttonInner = data.lastname +" "+ data.firstname + "<br>" + data.email
+    $: buttonInner = data.lastname +" "+ data.firstname +   "<br>" + data.ref +  " "+ data.formation;
     const link = "/file/" + data.id ;
     //@html writing
     //RED

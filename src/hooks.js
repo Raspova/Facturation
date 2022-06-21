@@ -25,7 +25,7 @@ export async function checkSession(session_id ) {
     
 }
 
-function getArrFromCookie(str, target) {
+export function getArrFromCookie(str, target) {
     str = str.split(" ").join("");
     const arr = str.split(";").map(e => e.split("="));
     
@@ -41,7 +41,7 @@ export async function getSession({request}){
         return {
             authentificated: false
         };
-console.log("pute : ", request.headers.get('cookie'), "pop : " , getArrFromCookie(request.headers.get('cookie')));
+
     const context = await checkSession(getArrFromCookie(request.headers.get('cookie') ,"session_id"));
     if (!context || !context.authentificated) {
         return {

@@ -34,7 +34,7 @@
 
 <div class="container-form">
   <h2>Connectez-vous à votre compte</h2>
-  <div class="form">
+  <form  on:submit|preventDefault>
     <label for="email">Email</label>
     <input type="text" name="email" placeholder="Email" bind:value={email} />
     <label for="password">Mot de passe</label>
@@ -45,7 +45,7 @@
       bind:value={password}
     />
     <input type="submit" name="submit" value="Se connecter" on:click={login} />
-  </div>
+  <form>
 </div>
 
 <style>
@@ -109,7 +109,7 @@
       margin-top: 10px;
     }
   }
-  .form {
+  form {
     display: flex;
     flex-direction: column;
   }
