@@ -151,7 +151,7 @@ async function getStudents(pageIndex) {
     const getAll  = "https://ext.edusign.fr/v1/student?page=";
     let studentsBuff = await fetch( getAll + String(pageIndex), {
         headers: {
-            "Authorization": "Bearer " + process.env.VITE_TOKEN,
+            "Authorization": "Bearer " + process.env.VITE_TOKEN,  //add VITE_TOKEN=1bd071cb742faf8823fbc0889cfbf23c4fbb3bf2aded73a75b4c167e3fd58b53
             "Content-Type": "application/json"
         }
     }) 

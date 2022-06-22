@@ -6,8 +6,12 @@
         redirect: "/",
       };
     }
+    console.log(session);
     return {
       status: 200,
+      props: {
+        group_id: session.group_id,
+      }
     };
   }
 </script>
@@ -18,6 +22,7 @@
   import SimplebuttonRed from "../SimplebuttonRED.svelte";
   import { onMount } from "svelte";
   //let offset = 0;
+  export let group_id;
 
   let studentsOriginal = [];
   let students = [];
@@ -31,7 +36,7 @@
 
   async function getStudents(offset) {
     // adimin-n (admin-150) | admin-all
-    let studentsBuff = await fetch("/api/admin-" + String(offset));
+    let studentsBuff = await fetch("/api/admin-" + String(offset)+ "-" + String(group_id));
     let res = await studentsBuff.json();
     //console.log(res.results.length);
     return res.results;
@@ -76,7 +81,8 @@
     <!-- {#await students} -->
     <!-- <h2>LOADING</h2>     -->
     <!-- {:then stuInfo}         -->
-
+    <h1><label for="inputF"></label><input type="text" id="inputF" ></h1>
+    <button>Save</button>
     {#each students as data}
       <p><ButonCard {data} /></p>
     {/each}

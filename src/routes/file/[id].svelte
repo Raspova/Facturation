@@ -102,25 +102,6 @@
         let mywindow = window.open(window.location.href.split('file')[0] + "file/facture?" + params.join('&'), 'PRINT', 'height=650,width=900,top=100,left=150');
         mywindow.print();
     }
-//
-    //async function loadInfo()  { 
-    //    let buff = await fetch( studentbyID, {
-    //        headers: {
-    //            "Authorization": "Bearer " + import.meta.env.VITE_TOKEN,
-    //            "Content-Type": "application/json"
-    //        }
-    //    })
-    //    let ret = await buff.json();
-    //    if (ret.status != "success")
-    //        return;
-    //    let res = ret.result;
-    //    formation = res.TRAINING_NAME;
-    //    ref_edof = res.FILE_NUMBER;
-    //    firstname = res.FIRSTNAME;
-    //    lastname = res.LASTNAME;
-    //    //console.log(ret + " " + ref_edof)
-    //    return ret;
-    //}
 </script>
 
 
