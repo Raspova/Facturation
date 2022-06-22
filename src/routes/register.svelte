@@ -7,7 +7,11 @@
           }
       }
       return {
-          status:200
+        status:200,
+        props: {
+          group_id: session.group_id,
+          is_Jonas: session.email === "direction@plateformation.fr"
+        }
       }
   }
 </script>
@@ -25,6 +29,8 @@
   let lastname;
   let firstname;
   let status = "prof";
+  export let is_Jonas; 
+  export let group_id;
 
   async function register() {
     // const error  =undefined;
@@ -45,7 +51,8 @@
           phone,
           email,
           password, //:Hash(password)
-          status
+          status,
+          group_id
         }),
         headers: {
           "Content-Type": "application/json",
@@ -67,11 +74,18 @@
 
  
     <div class="radio-btn">
-      <div>
+    {#if is_Jonas}
+    <div>
+      <h4>Coucou Jonas</h4>
+      <label for="adminR">Real Administrateur :</label>
+      <input bind:group={status} type="radio" id="adminR" name="statut" value="real_admin" />
+    </div>
+    {/if}
+    <div>
         <label for="admin">Administrateur</label>
         <input bind:group={status} type="radio" id="admin" name="statut" value="admin" />
       </div>
-
+   
       <div>
         <label for="student">Etudiant</label>
         <input bind:group={status}
@@ -87,6 +101,7 @@
         <label for="prof">Enseignant</label>
         <input bind:group={status} type="radio" id="prof" name="statut" value="prof"/>
       </div>
+
     </div>
     <form action="">
     <label for="username">Nom</label>
@@ -106,7 +121,7 @@
     
     <label for="passwordCp">Confirmer le mot de passe</label>
     <input required  type="password" name="password" placeholder="Mot de passe" bind:value={passwordCp}/>
-
+   
     <input type="submit" name="submit" value="Valider" on:click={() => {register()}} />
   </form>
 </div>
