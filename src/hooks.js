@@ -11,6 +11,7 @@ export async function checkSession(session_id ) {
             authentificated:false
         }
     }
+    try {
     const res = await pool.query("SELECT \"sessionID\", email from session_safe WHERE \"sessionID\" = $1", [session_id]);
     const group_id = await pool.query(`SELECT
     group_id
@@ -30,7 +31,11 @@ export async function checkSession(session_id ) {
         email:res.rows[0].email,
         group_id:group_id.rows[0].group_id
     }
-    
+    } catch {
+        return {
+            authentificated:false
+        }
+    }
 }
 
 export function getArrFromCookie(str, target) {
