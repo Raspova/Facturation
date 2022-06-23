@@ -13,28 +13,46 @@
         justify-self: center;
     }
     
-    
-    #fac {
+    #tabs {
+        margin-left: 50px;
+    }    
+
+    [type="button"] {
+        background-color: white;
+        border: none;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    #fac, #attestation {
         background-color: #fff;
         margin-left: 50px;
         background-size: 120%;
         width: 600;
         height: 900;
     }
-     
 </style>
 
 
 <script>
+    import { onMount } from 'svelte';
     import Facture from '../facture.svelte';
+    import AttestationFormation from './attestationformation.svelte';
     import { page } from '$app/stores';
     import FactureForm from '../../factureForm.svelte';
     import HeadBar from '../../HeadBar.svelte';
+    import Attestationformation from './attestationformation.svelte';
     //import createPdf from "../downloadPDF"
     
     //const studentbyID = "https://ext.edusign.fr/v1/student/" + $page.params.id;
     //let studentsBuff = loadInfo(); 
     
+    onMount(async () => {
+        document.getElementById("attestation").style.display = "none";
+        document.getElementById("fac").style.display = "block";
+        document.getElementById("tab-2").style.backgroundColor = "#eaebec";
+	});
+
     function getDate()  {
         let now = new Date();
         let month = '' + (now.getMonth() + 1);
@@ -102,6 +120,20 @@
         let mywindow = window.open(window.location.href.split('file')[0] + "file/facture?" + params.join('&'), 'PRINT', 'height=650,width=900,top=100,left=150');
         mywindow.print();
     }
+
+    function printAttestation() {
+        document.getElementById("attestation").style.display = "block";
+        document.getElementById("tab-2").style.backgroundColor = "white";
+        document.getElementById("fac").style.display = "none";
+        document.getElementById("tab-1").style.backgroundColor = "#eaebec";
+    }
+
+    function printFacture() {
+        document.getElementById("attestation").style.display = "none";
+        document.getElementById("tab-2").style.backgroundColor = "#eaebec";
+        document.getElementById("fac").style.display = "block";
+        document.getElementById("tab-1").style.backgroundColor = "white"; 
+    }
 </script>
 
 
@@ -117,11 +149,20 @@
             bind:mttc={mttc} bind:realisation_rate={realisation_rate}  bind:formation={formation} bind:lastname={lastname} 
             bind:firstname={firstname} bind:emission_date={emission_date} bind:civility={civility}> </FactureForm>
     </div>
-    <div  id="fac">
-        <Facture  {number_invoice} {begin_session} {end_session}
-            {number_hours} {number_days} {puht} {mht} {ref_edof}  
-            {mttc} {realisation_rate}  {formation} {lastname} 
-            {firstname} {emission_date} {civility}></Facture>
+    <div>
+        <div id="tabs">
+            <button type="button" id="tab-1" on:click={printFacture}>Facture</button>
+            <button type="button" id="tab-2" on:click={printAttestation}>Attestation</button>
+        </div>
+        <div id="fac">
+            <Facture  {number_invoice} {begin_session} {end_session}
+                {number_hours} {number_days} {puht} {mht} {ref_edof}  
+                {mttc} {realisation_rate}  {formation} {lastname} 
+                {firstname} {emission_date} {civility}></Facture>
+        </div>
+        <div id="attestation">
+            <AttestationFormation></AttestationFormation>
+        </div>
     </div>
     {/await}
 </main>
