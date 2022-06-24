@@ -77,7 +77,6 @@
     <FactureFormInner  bind:value={begin_session}  str="Début de séssion" ></FactureFormInner>
     <FactureFormInner  bind:value={end_session}  str="Fin de session" ></FactureFormInner>
     <FactureFormInner  bind:value={emission_date}  str="Date d'émission" ></FactureFormInner>
-    <FactureFormInner  bind:value={civility}  str="Civilité" ></FactureFormInner>
     <FactureFormInner  bind:value={number_days}  str="Nombre de jours" ></FactureFormInner>
     <FactureFormInner  bind:value={number_hours}  str="Nombre d'heures" ></FactureFormInner>
     <FactureFormInner  bind:value={realisation_rate}  str="Taux de réalisation" ></FactureFormInner>

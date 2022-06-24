@@ -5,7 +5,6 @@
     let number_invoice = url.searchParams.get('number_invoice') || 'Undefiend';
     let emission_date = url.searchParams.get('emission_date') || 'Undefiend';
     let ref_edof = url.searchParams.get('ref_edof') || 'Undefiend';
-    let civility = url.searchParams.get('civility') || 'Undefiend';
     let lastname = url.searchParams.get('lastname') || 'Undefiend';
     let firstname = url.searchParams.get('firstname') || 'Undefiend';
     let begin_session = url.searchParams.get('begin_session') || 'Undefiend';
@@ -23,7 +22,6 @@
         number_invoice,
         emission_date,
         ref_edof,
-        civility,
         lastname,
         firstname,
         begin_session,
@@ -51,7 +49,6 @@
     export let number_invoice;
     export let emission_date;
     export let ref_edof;
-    export let civility;
     export let lastname;
     export let firstname;
     export let begin_session;
@@ -152,7 +149,7 @@ table {
           <th scope="col">Session</th>
       </tr>
       <tr>
-          <td >{civility} {lastname} {firstname}</td>
+          <td >{lastname} {firstname}</td>
           <td>{begin_session} au {end_session}<br/>Certification ICDL</td>
       </tr>
   </table>
