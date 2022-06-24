@@ -101,10 +101,10 @@
         <p>Durée de la formation: <b>{number_hours} heures</b></p>
         <br/><br/>
         <p>Fait à <b>Paris, le {date_pdf}</b></p>
-        <br/>
+        <br/><br/>
     </div>
     <div>
-        <img src="../testtampon.jpg" alt="logo" width="200"/>
+        <img src="../Tampon_Plateformation.PNG" alt="logo" width="200"/>
     </div>
 </main>
 
