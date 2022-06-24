@@ -1,32 +1,45 @@
 <script context="module">
-    export let civility_client = "Mme"
-    export let lastname_client = "DESBUISSON"
-    export let firstname_client = "Mael"
-    export let formation = "ANGLAIS EN VISIOCONFERENCE"
-    export let certification = "CERTIFICATION TOEIC"
-    export let place_formation = "100% à distance en visionconférence."
-    export let begin_date_formation = "25/05/2022"
-    export let end_date_formation = "15/06/2022"
-    export let time_formation = "4 heures"
-    export let date_pdf= "21 juin 2022"
-
     export function load({ url }) {
- 
+        const ref = url.searchParams.get('') || 'Undefined';
+        let ref_edof = url.searchParams.get('ref_edof') || 'Undefined';
+        let lastname = url.searchParams.get('lastname') || 'Undefined';
+        let firstname = url.searchParams.get('firstname') || 'Undefined';
+        let formation = url.searchParams.get('formation') || 'Undefined';
+        let certification = url.searchParams.get('certification') || 'Undefined';
+        let place_formation = url.searchParams.get('place_formation') || 'Undefined';
+        let begin_session = url.searchParams.get('begin_session') || 'Undefined';
+        let end_session = url.searchParams.get('end_session') || 'Undefined';
+        let number_hours = url.searchParams.get('number_hours') || 'Undefined';
+        let date_pdf = url.searchParams.get('date_pdf') || 'Undefined';
+
         return {
             props: {
-                civility_client,
-                lastname_client,
-                firstname_client,
+                ref_edof,
+                lastname,
+                firstname,
                 formation,
                 certification,
                 place_formation,
-                begin_date_formation,
-                end_date_formation,
-                time_formation,
+                begin_session,
+                end_session,
+                number_hours,
                 date_pdf
             }
         };
     }
+</script>
+
+<script>
+    export let ref_edof;
+    export let lastname;
+    export let firstname;
+    export let formation;
+    export let certification;
+    export let place_formation;
+    export let begin_session;
+    export let end_session;
+    export let number_hours;
+    export let date_pdf;
 </script>
 
 <style>
@@ -79,13 +92,13 @@
     <div>
         <p>Je soussigné <b>SERFATY Jonas</b></p>
         <p>Réprésentant de l'organisme de formation <b>Plateformation</b></p>
-        <p>Atteste que <b>{civility_client}.{lastname_client} {firstname_client}</b> a suivi la formation suivante:</p>
+        <p>Atteste que <b>{lastname} {firstname}</b> a suivi la formation suivante:</p>
         <div style="margin-left: 3%; color: #145084">
             <h5>{formation} + {certification}</h5>
         </div>
         <p>Lieu de la formation: <b>{place_formation}</b></p>
-        <p>Dates de la formation: <b>{begin_date_formation}</b> au <b>{end_date_formation}</b></p>
-        <p>Durée de la formation: <b>{time_formation}</b></p>
+        <p>Dates de la formation: <b>{begin_session}</b> au <b>{end_session}</b></p>
+        <p>Durée de la formation: <b>{number_hours} heures</b></p>
         <br/><br/>
         <p>Fait à <b>Paris, le {date_pdf}</b></p>
         <br/>

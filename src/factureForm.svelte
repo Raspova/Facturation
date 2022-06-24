@@ -70,6 +70,8 @@
 <div class="form">
     <div class="title">N°{ref_edof}</div>
     <div class="subtitle">{lastname} {firstname} !</div>
+    <FactureFormInner  bind:value={lastname}  str="Nom" ></FactureFormInner>
+    <FactureFormInner  bind:value={firstname}  str="Prénom" ></FactureFormInner>
     <FactureFormInner  bind:value={formation}  str="Formation" ></FactureFormInner>
     <FactureFormInner  bind:value={number_invoice}  str="Numéro de facture" ></FactureFormInner>
     <FactureFormInner  bind:value={begin_session}  str="Début de séssion" ></FactureFormInner>
