@@ -32,7 +32,7 @@
         border-top-right-radius: 5px;
     }
 
-    #fac, #attestation {
+    #fac, #attestation, #emargement {
         background-color: #fff;
         margin-left: 50px;
         background-size: 120%;
@@ -46,9 +46,11 @@
     import { onMount } from 'svelte';
     import Facture from '../facture.svelte';
     import AttestationFormation from './attestationformation.svelte';
+    import Emargement from './emargement.svelte';
     import { page } from '$app/stores';
     import FactureForm from '../../factureForm.svelte';
     import FactureFormAttestation from '../../factureFormAttestation.svelte';
+    import FactureFormEmargement from '../../factureFormEmargement.svelte';
     import HeadBar from '../../HeadBar.svelte';
     import Attestationformation from './attestationformation.svelte';
     //import createPdf from "../downloadPDF"
@@ -62,8 +64,11 @@
         document.getElementById("attestation").style.display = "none";
         document.getElementById("fac").style.display = "block";
         document.getElementById("formattestation").style.display = "none";
+        document.getElementById("formemargement").style.display = "none";
         document.getElementById("formfac").style.display = "block";
         document.getElementById("tab-2").style.backgroundColor = "#eaebec";
+        document.getElementById("emargement").style.display = "none";
+        document.getElementById("tab-3").style.backgroundColor = "#eaebec";
 	});
 
     function getDate()  {
@@ -76,7 +81,6 @@
         month = '0' + month;
         if (day.length < 2) 
         day = '0' + day;
-        <LineTableEmargement></LineTableEmargement>
         return [year, month, day].join('-');
 	}    
     
@@ -99,6 +103,9 @@
     export let certification = "test";
     export let place_formation = "télétravail";
     export let date_pdf = "12/09/2022"
+    export let table_session = [1, 2, 3, 4, 5, 6]
+    export let number_hours_off_justified = "3";
+    export let number_hours_off = "12";
     //civility,
     //formation,
     //ref_edof,
@@ -131,6 +138,8 @@
         "begin_session=" + begin_session,
         "end_session=" + end_session,
         "number_hours=" + number_hours,
+        "number_hours_off=" + number_hours_off,
+        "number_hours_off_justified=" + number_hours_off_justified,
         "number_days=" + number_days,
         "puht=" + puht,
         "mht=" + mht,
@@ -147,6 +156,9 @@
         document.getElementById("tab-1").style.backgroundColor = "#eaebec";
         document.getElementById("formattestation").style.display = "block";
         document.getElementById("formfac").style.display = "none";
+        document.getElementById("emargement").style.display = "none";
+        document.getElementById("tab-3").style.backgroundColor = "#eaebec";
+        document.getElementById("formemargement").style.display = "none";
         nameDoc = "attestationformation";
     }
 
@@ -157,7 +169,23 @@
         document.getElementById("tab-1").style.backgroundColor = "white";
         document.getElementById("formattestation").style.display = "none";
         document.getElementById("formfac").style.display = "block";
+        document.getElementById("emargement").style.display = "none";
+        document.getElementById("tab-3").style.backgroundColor = "#eaebec";
+        document.getElementById("formemargement").style.display = "none";
         nameDoc = "facture";
+    }
+
+    function printEmargement() {
+        document.getElementById("attestation").style.display = "none";
+        document.getElementById("tab-2").style.backgroundColor = "#eaebec";
+        document.getElementById("fac").style.display = "none";
+        document.getElementById("tab-1").style.backgroundColor = "#eaebec";
+        document.getElementById("formattestation").style.display = "none";
+        document.getElementById("formfac").style.display = "none";
+        document.getElementById("emargement").style.display = "block";
+        document.getElementById("tab-3").style.backgroundColor = "white";
+        document.getElementById("formemargement").style.display = "block";
+        nameDoc = "emargement";
     }
 </script>
 
@@ -180,11 +208,18 @@
             bind:certification={certification} bind:place_formation={place_formation} bind:begin_session={begin_session} bind:end_session={end_session} 
             bind:number_hours={number_hours} bind:date_pdf={date_pdf}></FactureFormAttestation>
         </div>
+        <div id="formemargement">
+            <FactureFormEmargement bind:ref_edof={ref_edof} bind:lastname={lastname}  bind:firstname={firstname} bind:formation={formation}
+            bind:place_formation={place_formation} bind:begin_session={begin_session} bind:end_session={end_session} 
+            bind:number_hours={number_hours} bind:number_hours_off={number_hours_off} bind:number_hours_off_justified={number_hours_off_justified} 
+            bind:table_session={table_session}></FactureFormEmargement>
+        </div>
     </div>
     <div>
         <div id="tabs">
             <button type="button" id="tab-1" on:click={printFacture}>Facture</button>
             <button type="button" id="tab-2" on:click={printAttestation}>Attestation</button>
+            <button type="button" id="tab-3" on:click={printEmargement}>Emargement</button>
         </div>
         <div id="fac">
             <Facture  {number_invoice} {begin_session} {end_session}
@@ -195,6 +230,10 @@
         <div id="attestation">
             <AttestationFormation {ref_edof} {lastname} {firstname} {formation} {certification} {place_formation} {begin_session} 
             {end_session} {number_hours} {date_pdf}></AttestationFormation>
+        </div>
+        <div id="emargement">
+            <Emargement {firstname} {lastname} {formation} {place_formation} {ref_edof} {begin_session} {end_session} {number_hours} {number_hours_off} 
+            {number_hours_off_justified} {table_session}></Emargement>
         </div>
     </div>
     {/await}

@@ -1,20 +1,20 @@
 <script context="module">
     export function load({ url }) {
-      const ref = url.searchParams.get('') || 'Undefiend';
-    let formation = url.searchParams.get('formation') || 'Undefiend';
-    let number_invoice = url.searchParams.get('number_invoice') || 'Undefiend';
-    let emission_date = url.searchParams.get('emission_date') || 'Undefiend';
-    let ref_edof = url.searchParams.get('ref_edof') || 'Undefiend';
-    let lastname = url.searchParams.get('lastname') || 'Undefiend';
-    let firstname = url.searchParams.get('firstname') || 'Undefiend';
-    let begin_session = url.searchParams.get('begin_session') || 'Undefiend';
-    let end_session = url.searchParams.get('end_session') || 'Undefiend';
-    let number_hours = url.searchParams.get('number_hours') || 'Undefiend';
-    let number_days = url.searchParams.get('number_days') || 'Undefiend';
-    let puht = url.searchParams.get('puht') || 'Undefiend';
-    let mht = url.searchParams.get('mht') || 'Undefiend';
-    let mttc = url.searchParams.get('mttc') || 'Undefiend';
-    let realisation_rate = url.searchParams.get('realisation_rate') || 'Undefiend';
+      const ref = url.searchParams.get('') || 'Undefined';
+    let formation = url.searchParams.get('formation') || 'Undefined';
+    let number_invoice = url.searchParams.get('number_invoice') || 'Undefined';
+    let emission_date = url.searchParams.get('emission_date') || 'Undefined';
+    let ref_edof = url.searchParams.get('ref_edof') || 'Undefined';
+    let lastname = url.searchParams.get('lastname') || 'Undefined';
+    let firstname = url.searchParams.get('firstname') || 'Undefined';
+    let begin_session = url.searchParams.get('begin_session') || 'Undefined';
+    let end_session = url.searchParams.get('end_session') || 'Undefined';
+    let number_hours = url.searchParams.get('number_hours') || 'Undefined';
+    let number_days = url.searchParams.get('number_days') || 'Undefined';
+    let puht = url.searchParams.get('puht') || 'Undefined';
+    let mht = url.searchParams.get('mht') || 'Undefined';
+    let mttc = url.searchParams.get('mttc') || 'Undefined';
+    let realisation_rate = url.searchParams.get('realisation_rate') || 'Undefined';
 
     return {
         props: {

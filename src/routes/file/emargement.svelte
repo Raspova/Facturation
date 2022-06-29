@@ -1,18 +1,45 @@
+<script context="module">
+    export function load({ url }) {
+        let formation = url.searchParams.get('formation') || 'Undefined';
+        let place_formation = url.searchParams.get('place_formation') || 'Undefined';
+        let ref_edof = url.searchParams.get('ref_edof') || 'Undefined';
+        let lastname = url.searchParams.get('lastname') || 'Undefined';
+        let firstname = url.searchParams.get('firstname') || 'Undefined';
+        let begin_session = url.searchParams.get('begin_session') || 'Undefined';
+        let end_session = url.searchParams.get('end_session') || 'Undefined';
+        let number_hours = url.searchParams.get('number_hours') || 'Undefined';
+        let number_hours_off = url.searchParams.get('number_hours_off') || 'Undefined';
+        let number_hours_off_justified = url.searchParams.get('number_hours_off_justified') || 'Undefined';
+        let table_session = url.searchParams.get('table_session') || 'Undefined';
+
+        return {
+            props: {
+            formation,
+            place_formation,
+            ref_edof,
+            lastname,
+            firstname,
+            begin_session,
+            end_session,
+            number_hours,
+            number_hours_off,
+            number_hours_off_justified,
+            table_session
+            }
+        };
+    }
+</script>
+
 <script>
     import LineTableEmargement from '../../LineTableEmargement.svelte';
-    
+
     export let firstname;
     export let lastname;
     export let formation;
-    export let time_formation;
-    export let date_formation;
-    export let begin_formation;
-    export let end_formation;
     export let place_formation;
     export let ref_edof;
     export let begin_session;
     export let end_session;
-    export let intervenant;
     export let number_hours;
     export let number_hours_off;
     export let number_hours_off_justified;
@@ -93,7 +120,7 @@
         <h2>Feuille d'émargement</h2>
     </div>
     <div class="wrapper-title">
-        <div style="border: solid; padding-left: 5px;">
+        <div style="border: solid; padding-left: 5px; margin-left: 5px">
             <p><b>Apprenant:</b> {firstname} {lastname}</p>
             <p><b>Nom de la formation:</b> {formation}</p>
             <p><b>Lieu:</b> {place_formation}</p>
@@ -101,7 +128,7 @@
             <p><b>Période:</b> {begin_session} au {end_session}</p>
         </div>
         <div></div>
-        <div style="border: solid; padding-left: 5px;">
+        <div style="border: solid; padding-left: 5px; margin-right: 5px">
             <h4>PLATEFORMATION</h4>
             <p>N° de déclaration: 11922431492</p>
             <p>48, rue du progrès 92700 Colombes</p>
@@ -110,7 +137,7 @@
     </div>
     <table class="Table-Margin">
         <tr>
-            <th scope="col">Session</th>
+            <th scope="col">Session(s)</th>
             <th scope="col">Durée</th>
             <th scope="col">Signature</th>
             <th scope="col">Intervenant(s)</th>
