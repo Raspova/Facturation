@@ -1,14 +1,14 @@
 <script>   
-    export let firstname = "johan";
-    export let lastname = "gaudisson";
-    export let formation = "anglais";
-    export let date_session = "12/08/2022";
-    export let begin_session = "10h45";
-    export let end_session = "12h15";
-    export let time_session = "1h30";
+    export let firstname;
+    export let lastname;
+    export let formation;
+    export let date_session;
+    export let begin_session;
+    export let end_session;
+    export let time_session;
     export let sigClient;
-    export let firstname_inter = "Jean-Pierre";
-    export let lastname_inter = "Ducoq";
+    export let firstname_inter;
+    export let lastname_inter;
     export let sigIntervenant;
     export let table_session;
 

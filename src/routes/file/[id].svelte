@@ -88,6 +88,8 @@
     export let ref_edof;
     export let lastname;
     export let firstname;
+    export let lastname_inter = "Pltfaurmacion";
+    export let firstname_inter = "Jean-Michel";
     let emission_date = getDate();//= "16-mars-22";
     // TODO
     export let number_invoice;//= "2022-54";
@@ -258,7 +260,7 @@
             <FactureFormEmargement bind:ref_edof={ref_edof} bind:lastname={lastname}  bind:firstname={firstname} bind:formation={formation}
             bind:place_formation={place_formation} bind:begin_session={begin_session} bind:end_session={end_session} 
             bind:number_hours={number_hours} bind:number_hours_off={number_hours_off} bind:number_hours_off_justified={number_hours_off_justified} 
-            bind:table_session={table_session}></FactureFormEmargement>
+            bind:table_session={table_session} {firstname_inter} {lastname_inter} ></FactureFormEmargement>
         </div>
     </div>
     <div>

@@ -6,6 +6,8 @@
     export let ref_edof;
     export let lastname;
     export let firstname;
+    export let lastname_inter;
+    export let firstname_inter;
     export let formation;
     export let place_formation;
     export let begin_session;
@@ -79,7 +81,7 @@
     <FactureFormInner  bind:value={number_hours_off_justified}  str="Nombres d'heures absences justifiées" ></FactureFormInner>
     <div>
       <Modal>
-        <Content bind:table_session={table_session}/>
+        <Content bind:table_session={table_session} {firstname} {lastname} {firstname_inter} {lastname_inter} {formation}/>
       </Modal>
     </div>
 </div>
