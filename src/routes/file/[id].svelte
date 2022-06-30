@@ -103,9 +103,54 @@
     export let certification = "test";
     export let place_formation = "télétravail";
     export let date_pdf = "12/09/2022"
-    export let table_session = [1, 2, 3, 4, 5, 6]
     export let number_hours_off_justified = "3";
     export let number_hours_off = "12";
+    
+    const newLine1 = {
+        Id: 1,
+        Firstname: firstname,
+        Lastname: lastname,
+        Formation: "anglais",
+        Date_session: "19/07/2020",
+        Begin_session: "10h45",
+        End_session: "12h30",
+        Time_session: "1h45",
+        Firstname_inter: "Jean-Michel",
+        Lastname_inter: "Pltefaurmacion",
+        Signature_client: "../testsig1.png",
+        Signature_intervenant: "../testsig2.png"
+    }
+    const newLine2 = {
+        Id: 2,
+        Firstname: firstname,
+        Lastname: lastname,
+        Formation: "anglais",
+        Date_session: "21/07/2020",
+        Begin_session: "14h45",
+        End_session: "16h30",
+        Time_session: "1h45",
+        Firstname_inter: "Jean-Michel",
+        Lastname_inter: "Pltefaurmacion",
+        Signature_client: "Undefined",
+        Signature_intervenant: "Undefined",
+    }
+
+    const newLine3 = {
+        Id: 3,
+        Firstname: firstname,
+        Lastname: lastname,
+        Formation: "anglais",
+        Date_session: "24/07/2020",
+        Begin_session: "13h45",
+        End_session: "16h30",
+        Time_session: "2h45",
+        Firstname_inter: "Jean-Michel",
+        Lastname_inter: "Pltefaurmacion",
+        Signature_client: "../testsig1.png",
+        Signature_intervenant: "../testsig2.png"
+    }
+
+    export let table_session = [newLine1, newLine2, newLine3];
     //civility,
     //formation,
     //ref_edof,
@@ -140,6 +185,7 @@
         "number_hours=" + number_hours,
         "number_hours_off=" + number_hours_off,
         "number_hours_off_justified=" + number_hours_off_justified,
+        "table_session=" + table_session,
         "number_days=" + number_days,
         "puht=" + puht,
         "mht=" + mht,

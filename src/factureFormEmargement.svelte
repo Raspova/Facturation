@@ -78,6 +78,8 @@
     <FactureFormInner  bind:value={number_hours_off}  str="Nombres d'heures absences" ></FactureFormInner>
     <FactureFormInner  bind:value={number_hours_off_justified}  str="Nombres d'heures absences justifiées" ></FactureFormInner>
     <div>
-      <Modal><Content/></Modal>
+      <Modal>
+        <Content bind:table_session={table_session}/>
+      </Modal>
     </div>
 </div>

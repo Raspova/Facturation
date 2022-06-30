@@ -1,6 +1,4 @@
-<script>
-    import FactureFormInner from "./factureFormInner.svelte";
-    
+<script>   
     export let firstname = "johan";
     export let lastname = "gaudisson";
     export let formation = "anglais";
@@ -12,24 +10,12 @@
     export let firstname_inter = "Jean-Pierre";
     export let lastname_inter = "Ducoq";
     export let sigIntervenant;
+    export let table_session;
 
-    let fileSigClient;
-    let fileSigIntervenant;
-
-    function encodeImageFileAsURL(element) {
-        console.log(fileSigClient)
-        console.log(fileSigIntervenant)
-        console.log(element)
-        var file = element.files[0];
-        var reader = new FileReader();
-        reader.onloadend = function() {
-            console.log('RESULT', reader.result)
-        }
-        reader.readAsDataURL(file);
-    }
-
-    function addNewLine() {
+    async function addNewLine() {
+        let id = table_session.length + 1
         const newLine = {
+            Id: id,
             Firstname: firstname,
             Lastname: lastname,
             Formation: formation,
@@ -38,11 +24,11 @@
             End_session: end_session,
             Time_session: time_session,
             Firstname_inter: firstname_inter,
-            Lastname_inter: lastname_inter
+            Lastname_inter: lastname_inter,
+            Signature_client: "../testsig1.png",
+            Signature_intervenant: "../testsig2.png"
         }
-        encodeImageFileAsURL(fileSigClient);
-        encodeImageFileAsURL(fileSigIntervenant);
-        console.log(newLine);
+        table_session.push(newLine);
     }
 
 </script>
@@ -65,18 +51,17 @@
 
 <main>
     <h3>Ajouter une nouvelle ligne</h3>
+    <label>Apprenant</label>
     <input bind:value={firstname} id="firstname" class="input" type="text" placeholder="Prénom"/>
     <input bind:value={lastname} id="lastname" class="input" type="text" placeholder="Nom"/>
+    <label>Formation</label>
     <input bind:value={formation} id="formation" class="input" type="text" placeholder="Formation"/>
     <input bind:value={date_session} id="date_session" class="input" type="text" placeholder="Date de la session"/>
     <input bind:value={begin_session} id="begin_session" class="input" type="text" placeholder="Heure de début"/>
     <input bind:value={end_session} id="end_session" class="input" type="text" placeholder="Heure de fin"/>
     <input bind:value={time_session} id="time_session" class="input" type="text" placeholder="Temps de la session"/>
-    <label>Signature du client</label><br/>
-    <input type="file" bind:value={fileSigClient}>
+    <label>Intervenant</label>
     <input bind:value={firstname_inter} id="firstname_inter" class="input" type="text" placeholder="Prénom intervenant"/>
     <input bind:value={lastname_inter} id="lastname_inter" class="input" type="text" placeholder="Nom intervenant"/>
-    <label>Signature de l'intervenant</label><br/>
-    <input type="file" bind:value={fileSigIntervenant}>
     <button on:click={addNewLine} type="button" id="BtnPlusLineEmargement">Valider</button>
 </main>

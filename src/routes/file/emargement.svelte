@@ -14,17 +14,17 @@
 
         return {
             props: {
-            formation,
-            place_formation,
-            ref_edof,
-            lastname,
-            firstname,
-            begin_session,
-            end_session,
-            number_hours,
-            number_hours_off,
-            number_hours_off_justified,
-            table_session
+                formation,
+                place_formation,
+                ref_edof,
+                lastname,
+                firstname,
+                begin_session,
+                end_session,
+                number_hours,
+                number_hours_off,
+                number_hours_off_justified,
+                table_session
             }
         };
     }
@@ -43,7 +43,9 @@
     export let number_hours;
     export let number_hours_off;
     export let number_hours_off_justified;
-    export let sessions = [1, 2, 3, 4, 5]
+    export let table_session; 
+
+    $: table_session;
 </script>
 
 <style>
@@ -142,8 +144,8 @@
             <th scope="col">Signature</th>
             <th scope="col">Intervenant(s)</th>
         </tr>
-        {#each sessions as session}
-            <LineTableEmargement idLineSig="Line{session}" idInterSig="Inter{session}"></LineTableEmargement>
+        {#each table_session as session}
+            <LineTableEmargement idLineSig="Line{session.Id}" idInterSig="Inter{session.Id}" bind:session={session}></LineTableEmargement>
         {/each}
     </table>
     <div>

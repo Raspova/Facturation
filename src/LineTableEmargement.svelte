@@ -3,27 +3,18 @@
 
     export let idLineSig;
     export let idInterSig;
-    export let firstname;
-    export let lastname;
-    export let formation;
-    export let time_formation;
-    export let date_formation;
-    export let begin_formation;
-    export let end_formation;
-    export let intervenant;
-    export let signature_client = "Undefined";
-
+    export let session;
 
     onMount(async () => {
         const sigLine = document.getElementById(idLineSig);
-        if (signature_client === "Undefined") {
+        if (session.Signature_client === "Undefined") {
             const text = document.createElement("p");
             text.innerHTML = "ABSENT";
             text.style.color = 'red';
             sigLine.appendChild(text);
         } else {
             var Img = document.createElement("img");
-            Img.setAttribute('src', '../testsig1.png');
+            Img.setAttribute('src', session.Signature_client);
             Img.setAttribute('alt', 'test1');
             Img.setAttribute('height', '50px');
             Img.setAttribute('width', '50px');
@@ -31,10 +22,10 @@
         }
 
         const sigInter = document.getElementById(idInterSig);
-        if (signature_client != "Undefined") {
+        if (session.Signature_client != "Undefined") {
             console.log("je passe")
             var Img2 = document.createElement("img");
-            Img2.setAttribute('src', '../testsig2.png');
+            Img2.setAttribute('src', session.Signature_intervenant);
             Img2.setAttribute('alt', 'test2');
             Img2.setAttribute('height', '50px');
             Img2.setAttribute('width', '50px');
@@ -61,13 +52,13 @@
 
 
 <tr>
-    <td><b>{firstname} {lastname} - {formation}</b><br/>{date_formation} {begin_formation} {end_formation}</td>
-    <td>{time_formation}</td>
+    <td><b>{session.Firstname} {session.Lastname} - {session.Formation}</b><br/>{session.Date_session} {session.Begin_session} {session.End_session}</td>
+    <td>{session.Time_session}</td>
     <td>
         <div id={idLineSig}>
         </div>
     </td>
-    <td>{intervenant}<br/>
+    <td>{session.Firstname_inter} {session.Lastname_inter}<br/>
         <div id={idInterSig}>           
         </div>
     </td>
