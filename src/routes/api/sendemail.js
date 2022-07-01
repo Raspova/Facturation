@@ -1,24 +1,20 @@
-import sgMail from "@sendgrid/mail";
-sgMail.setApiKey("TO DO KEY")
+//const nodemailer = require('nodemailer')
 
-export async function post(body) {
+export async function post({request}) {
     console.log("BACK-sendEmail")
     const msg = {
-      to: body.Receiver,
-      from: body.Sender,
-      subject: body.Object,
-      text: body.Text,
-      html: body.Html,
+        to: request.body.Receiver,
+        from: request.body.Sender,
+        subject: request.body.Object,
+        text: request.body.Text,
+        html: request.body.Html,
     };
     console.log("Email submitted");
-    const output = await sgMail.send(msg);
-return {
+    //const output = await sgMail.send(msg);
     return {
         status: 200,
         body: {
             message:"OK"
         }
-    
-    },
-};
+    }
 }

@@ -23,15 +23,74 @@
   import { onMount } from "svelte";
   import Modal from 'svelte-simple-modal';
 	  import Content from '../ContentPopUpEmail.svelte';
+import ContentPopUpEmail from "../ContentPopUpEmail.svelte";
   //let offset = 0;
   export let group_id;
 
   let studentsOriginal = [];
   let students = [];
+  let notif = "34";
+  let notifE = "168";
   onMount(async () => {
     studentsOriginal = await getStudents("all");
     students = Object.create(studentsOriginal);
     console.log(students);
+
+    if (notif != 0) {
+        var bellElement = document.getElementById("bell-icon");
+        var nbr = document.createElement("div");
+        nbr.style.position = "absolute"
+        if (notif > 99) {
+          nbr.style.width = "34px";
+        } else if (notif > 9) {
+          nbr.style.width = "24px";
+        } else {
+          nbr.style.width = "15px";
+        }
+        nbr.style.height = "15px";
+        nbr.style.borderRadius = "7.5px";
+        nbr.style.marginLeft = "27px";
+        nbr.style.marginTop = "-45px";
+        nbr.style.backgroundColor = "red"
+        bellElement.appendChild(nbr)
+        var textNbr = document.createElement("p");
+        textNbr.style.fontSize = "12px";
+        textNbr.style.marginLeft = "4px";
+        textNbr.style.marginTop = "0px";
+        textNbr.style.fontWeight = "bold";
+        textNbr.style.color = "white";
+        var tNotif = notif;
+        textNbr.innerHTML = tNotif;
+        nbr.appendChild(textNbr)
+    }
+
+    if (notifE != 0) {
+        var envElement = document.getElementById("envelope-icon");
+        var nbrE = document.createElement("div");
+        nbrE.style.position = "absolute"
+        if (notifE > 99) {
+          nbrE.style.width = "34px";
+        } else if (notifE > 9) {
+          nbrE.style.width = "24px";
+        } else {
+          nbrE.style.width = "15px";
+        }
+        nbrE.style.height = "15px";
+        nbrE.style.borderRadius = "7.5px";
+        nbrE.style.marginLeft = "35px";
+        nbrE.style.marginTop = "-50px";
+        nbrE.style.backgroundColor = "red"
+        envElement.appendChild(nbrE)
+        var textNbrE = document.createElement("p");
+        textNbrE.style.fontSize = "12px";
+        textNbrE.style.marginLeft = "4px";
+        textNbrE.style.marginTop = "0px";
+        textNbrE.style.fontWeight = "bold";
+        textNbrE.style.color = "white";
+        var tNotifE = notifE;
+        textNbrE.innerHTML = tNotifE;
+        nbrE.appendChild(textNbrE)
+    }
   });
   let filterstatus = "Nom";
   let filter;
@@ -131,6 +190,12 @@
   <Modal>
     <Content/>
   </Modal>
+  <div style="border-radius: 25px" id="envelope-icon">
+    <img src="../enveloppe.png" alt="enveloppe-icon" width="50px"/>
+  </div>
+  <div style="border-radius: 25px" id="bell-icon">
+    <img src="../cloche-icon.png" alt="cloche-icon" width="50px"/>
+  </div>
   <nav>
     <div id="nav">
       <SimplebuttonRed value="Logout" on:click={logout} />
