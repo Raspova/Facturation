@@ -16,6 +16,11 @@
     export let number_hours_off;
     export let number_hours_off_justified;
     export let table_session;
+    export let isSuppLine;
+
+    function isRemoveLine() {
+      isSuppLine = 1;
+    }
 </script>
 
 <style>
@@ -65,6 +70,12 @@
   background-color: #06b;
 }
 
+.addLine {
+  width: 100%;
+  margin-top: 20px;
+  height: 30px;
+}
+
 </style>
 
 <div class="form">
@@ -84,4 +95,5 @@
         <Content bind:table_session={table_session} {firstname} {lastname} {firstname_inter} {lastname_inter} {formation}/>
       </Modal>
     </div>
+    <button class="addLine" on:click={isRemoveLine}>Supprimer une ligne</button>
 </div>

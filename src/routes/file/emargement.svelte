@@ -44,8 +44,9 @@
     export let number_hours_off;
     export let number_hours_off_justified;
     export let table_session; 
+    export let isSuppLine = 0;
 
-    $: table_session;
+    table_session = table_session;
 </script>
 
 <style>
@@ -145,7 +146,7 @@
             <th scope="col">Intervenant(s)</th>
         </tr>
         {#each table_session as session}
-            <LineTableEmargement idLineSig="Line{session.Id}" idInterSig="Inter{session.Id}" bind:session={session}></LineTableEmargement>
+            <LineTableEmargement idLineSig="Line{session.Id}" idInterSig="Inter{session.Id}" bind:session={session} bind:isSuppLine={isSuppLine}></LineTableEmargement>
         {/each}
     </table>
     <div>

@@ -1,11 +1,11 @@
-<script>   
+<script>  
     export let firstname;
     export let lastname;
     export let formation;
-    export let date_session;
-    export let begin_session;
-    export let end_session;
-    export let time_session;
+    export let date_session = "12/08/2021";
+    export let begin_session = "10h30";
+    export let end_session = "12h30";
+    export let time_session = "2h";
     export let sigClient;
     export let firstname_inter;
     export let lastname_inter;
@@ -13,7 +13,7 @@
     export let table_session;
 
     async function addNewLine() {
-        let id = table_session.length + 1
+        let id = table_session.length + 1;
         const newLine = {
             Id: id,
             Firstname: firstname,
@@ -29,6 +29,7 @@
             Signature_intervenant: "../testsig2.png"
         }
         table_session.push(newLine);
+        table_session = [table_session, newline];
     }
 
 </script>

@@ -4,8 +4,24 @@
     export let idLineSig;
     export let idInterSig;
     export let session;
+    export let isSuppLine;
+
+    function printSuppLine () {
+        console.log("SUPP", isSuppLine)
+    }
 
     onMount(async () => {
+        const sigInter = document.getElementById(idInterSig);
+        if (isSuppLine === 1) {
+            var btnSupp = document.createElement("button")
+            btnSupp.innerHTML = "X";
+            btnSupp.style.color = "red";
+            btnSupp.style.position = "absolute";
+            btnSupp.style.marginLeft = "150px";
+            btnSupp.style.marginTop = "-20px";
+            btnSupp.onclick = printSuppLine;
+            sigInter.appendChild(btnSupp);
+        }
         const sigLine = document.getElementById(idLineSig);
         if (session.Signature_client === "Undefined") {
             const text = document.createElement("p");
@@ -15,23 +31,21 @@
         } else {
             var Img = document.createElement("img");
             Img.setAttribute('src', session.Signature_client);
-            Img.setAttribute('alt', 'test1');
+            Img.setAttribute('alt', 'signatureClient');
             Img.setAttribute('height', '50px');
             Img.setAttribute('width', '50px');
             sigLine.appendChild(Img);
         }
-
-        const sigInter = document.getElementById(idInterSig);
         if (session.Signature_client != "Undefined") {
             console.log("je passe")
             var Img2 = document.createElement("img");
             Img2.setAttribute('src', session.Signature_intervenant);
-            Img2.setAttribute('alt', 'test2');
+            Img2.setAttribute('alt', 'signatureIntervenant');
             Img2.setAttribute('height', '50px');
             Img2.setAttribute('width', '50px');
             sigInter.appendChild(Img2);
         }
-	});
+    });
 </script>
 
 <style>

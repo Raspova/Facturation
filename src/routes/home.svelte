@@ -21,6 +21,8 @@
   import SimplebuttonGreen from "../SimplebuttonGREEN.svelte";
   import SimplebuttonRed from "../SimplebuttonRED.svelte";
   import { onMount } from "svelte";
+  import Modal from 'svelte-simple-modal';
+	  import Content from '../ContentPopUpEmail.svelte';
   //let offset = 0;
   export let group_id;
 
@@ -104,8 +106,6 @@
     />
   </div>
   <div />
-
- 
   <div>
     <div>
       <label for="Nom">Nom</label>
@@ -128,6 +128,9 @@
         />
       </div>
   </div></div>
+  <Modal>
+    <Content/>
+  </Modal>
   <nav>
     <div id="nav">
       <SimplebuttonRed value="Logout" on:click={logout} />
