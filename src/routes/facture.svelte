@@ -14,9 +14,7 @@
     export let end_session;
     export let number_hours;
     export let number_days;
-    export let puht;
-    export let mht;
-    export let mttc;
+    export let price;
     export let realisation_rate;
 </script>
 
@@ -123,8 +121,8 @@ table {
           <td >ACTION DE FORMATION:<br/>{formation}</td>
           <td>{number_hours}</td>
           <td>{number_days}</td>
-          <td>{puht}</td>
-          <td>{mht}</td>
+          <td>{price}</td>
+          <td>{price}</td>
       </tr>
       <tr>
           <td >Taux de réalisation: {realisation_rate}%</td>
@@ -133,7 +131,7 @@ table {
   <table class="Table-Margin">
       <tr>
           <th scope="col">Montant H.T.</th>
-          <td >{mht}</td>
+          <td >{price}</td>
       </tr>
       <tr>
           <th scope="row">Exonéré de T.V.A. selon art 261-4-4A du CGI</th>
@@ -141,7 +139,7 @@ table {
       </tr>
       <tr>
           <th scope="row">Montant T.T.C.</th>
-          <td>{mttc}</td>
+          <td>{price}</td>
       </tr>
   </table>
   <table class="Table-Margin">

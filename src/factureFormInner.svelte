@@ -1,6 +1,9 @@
 <script>
-    export let str;
-    export let value;
+  import { createEventDispatcher } from 'svelte';
+  
+  export let str;  
+  export let value;
+  const dispatch = createEventDispatcher(); 
 </script>
 
 <style>
@@ -74,7 +77,7 @@
 </style>
 
 <div class="input-container">
-    <input bind:value={value} id={str} class="input" type="text" placeholder=" "/>
+    <input bind:value={value} id={str} class="input" type="text" placeholder=" " on:input={() => {dispatch("change")}}/>
     <div class="cut"></div>
     <label for={str} class="placeholder">{str}</label>
 </div>

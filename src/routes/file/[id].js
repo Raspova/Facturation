@@ -137,9 +137,7 @@ export async function get({params}) {
     let number_hours = fac.nmb_hour;//= "12";
     let begin_session = fac.begin_session;//= "13/12/2021";
     let end_session = fac.end_seesion;//= "14/03/2022"; 
-    let puht = fac.puht;//= "45;00£";
-    let mht = fac.mht;//= "45;00£";
-    let mttc = fac.mttc;//= "45;00£";
+    let price = fac.puht;//= "45;00£";
  
     return {
         body: {
@@ -152,10 +150,7 @@ export async function get({params}) {
             number_hours:number_hours,
             begin_session:begin_session,
             end_session:end_session,
-            puht:puht,
-            mht:mht,
-            mttc:mttc,
- 
+            price:price
         }
     }
 }

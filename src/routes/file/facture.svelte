@@ -12,9 +12,9 @@
     let end_session = url.searchParams.get('end_session') || 'Undefiend';
     let number_hours = url.searchParams.get('number_hours') || 'Undefiend';
     let number_days = url.searchParams.get('number_days') || 'Undefiend';
-    let puht = url.searchParams.get('puht') || 'Undefiend';
-    let mht = url.searchParams.get('mht') || 'Undefiend';
-    let mttc = url.searchParams.get('mttc') || 'Undefiend';
+    let price = url.searchParams.get('price') || 'Undefiend';
+    //let mht = url.searchParams.get('mht') || 'Undefiend';
+    //let mttc = url.searchParams.get('mttc') || 'Undefiend';
     let realisation_rate = url.searchParams.get('realisation_rate') || 'Undefiend';
 
     return {
@@ -30,9 +30,7 @@
         end_session,
         number_hours,
         number_days,
-        puht,
-        mht,
-        mttc,
+        price,
         realisation_rate,
         }
       };
@@ -58,9 +56,7 @@
     export let end_session;
     export let number_hours;
     export let number_days;
-    export let puht;
-    export let mht;
-    export let mttc;
+    export let price;
     export let realisation_rate;
 </script>
 
@@ -168,8 +164,8 @@ table {
           <td >ACTION DE FORMATION:<br/>{formation}</td>
           <td>{number_hours}</td>
           <td>{number_days}</td>
-          <td>{puht}</td>
-          <td>{mht}</td>
+          <td>{price}</td>
+          <td>{price}</td>
       </tr>
       <tr>
           <td >Taux de réalisation: {realisation_rate}%</td>
@@ -178,7 +174,7 @@ table {
   <table class="Table-Margin">
       <tr>
           <th scope="col">Montant H.T.</th>
-          <td >{mht}</td>
+          <td >{price}</td>
       </tr>
       <tr>
           <th scope="row">Exonéré de T.V.A. selon art 261-4-4A du CGI</th>
@@ -186,7 +182,7 @@ table {
       </tr>
       <tr>
           <th scope="row">Montant T.T.C.</th>
-          <td>{mttc}</td>
+          <td>{price}</td>
       </tr>
   </table>
   <table class="Table-Margin">

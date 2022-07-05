@@ -12,10 +12,16 @@
     export let end_session;
     export let number_hours;
     export let number_days;
-    export let puht;
-    export let mht;
-    export let mttc;
+    export let price;
     export let realisation_rate;
+    const priceO = price;
+    function modPrice() {
+        realisation_rate = realisation_rate < 0 ? 0 :
+        realisation_rate >= 81 ? 100 : realisation_rate; 
+        price =  priceO * (realisation_rate / 100);
+        price = Math.round(price * 100) / 100;
+        
+    }
 </script>
 
 <style>
@@ -78,10 +84,10 @@
     <FactureFormInner  bind:value={civility}  str="Civilité" ></FactureFormInner>
     <FactureFormInner  bind:value={number_days}  str="Nombre de jours" ></FactureFormInner>
     <FactureFormInner  bind:value={number_hours}  str="Nombre d'heures" ></FactureFormInner>
-    <FactureFormInner  bind:value={realisation_rate}  str="Taux de réalisation" ></FactureFormInner>
-    <FactureFormInner  bind:value={puht}  str="Prix Unité Hors Taxe" ></FactureFormInner>
-    <FactureFormInner  bind:value={mht}  str="Montant Hors Taxe" ></FactureFormInner>
-    <FactureFormInner  bind:value={mttc}  str="Montant Tout Compris" ></FactureFormInner>
+    <FactureFormInner  bind:value={realisation_rate}  str="Taux de réalisation" on:change={modPrice} ></FactureFormInner>
+    <FactureFormInner  bind:value={price}  str="Prix Unité Hors Taxe" ></FactureFormInner>
+    <FactureFormInner  bind:value={price}  str="Montant Hors Taxe" ></FactureFormInner>
+    <FactureFormInner  bind:value={price}  str="Montant Tout Compris" ></FactureFormInner>
 
     <!-- <button type="text" class="submit">submit</button> -->
 </div>

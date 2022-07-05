@@ -57,14 +57,14 @@
     // TODO
     export let number_invoice;//= "2022-54";
     export  let number_hours;//= "12";
-    export  let begin_session;//= "13/12/2021";
+    export  let begin_session;//= "13/~12/2021";
     export  let end_session;//= "14/03/2022"; 
-    export  let puht;//= "45;00£";
-    export  let mht;//= "45;00£";
-    export  let mttc;//= "45;00£";
+    export  let price;//= "45;00£";
     let number_days = "";//= "2";
     let realisation_rate;//= "0"
     let civility = "";//= "Mme"; check if important 
+
+    console.log(price," " , lastname);
     //civility,
     //formation,
     //ref_edof,
@@ -95,9 +95,7 @@
         "end_session=" + end_session,
         "number_hours=" + number_hours,
         "number_days=" + number_days,
-        "puht=" + puht,
-        "mht=" + mht,
-        "mttc=" + mttc,
+        "price=" + price,
         "realisation_rat=" + realisation_rate,];
         let mywindow = window.open(window.location.href.split('file')[0] + "file/facture?" + params.join('&'), 'PRINT', 'height=650,width=900,top=100,left=150');
         mywindow.print();
@@ -113,14 +111,14 @@
    
     <div id="form">
        <FactureForm bind:number_invoice={number_invoice} bind:begin_session={begin_session} bind:end_session={end_session}
-            bind:number_hours={number_hours} bind:number_days={number_days} bind:puht={puht} bind:mht={mht} bind:ref_edof={ref_edof} 
-            bind:mttc={mttc} bind:realisation_rate={realisation_rate}  bind:formation={formation} bind:lastname={lastname} 
+            bind:number_hours={number_hours} bind:number_days={number_days} bind:price={price} bind:ref_edof={ref_edof} 
+            bind:realisation_rate={realisation_rate}  bind:formation={formation} bind:lastname={lastname} 
             bind:firstname={firstname} bind:emission_date={emission_date} bind:civility={civility}> </FactureForm>
     </div>
     <div  id="fac">
         <Facture  {number_invoice} {begin_session} {end_session}
-            {number_hours} {number_days} {puht} {mht} {ref_edof}  
-            {mttc} {realisation_rate}  {formation} {lastname} 
+            {number_hours} {number_days} {price}
+            {realisation_rate}  {formation} {lastname} 
             {firstname} {emission_date} {civility}></Facture>
     </div>
     {/await}
